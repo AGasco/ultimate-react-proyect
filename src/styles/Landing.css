@@ -1,0 +1,53 @@
+.landing {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__titleContainer {
+  font-family: "Righteous", cursive;
+  padding-bottom: 20vh;
+}
+
+.landing__title {
+  font-size: 10rem;
+}
+
+.landing__subtitle {
+  font-size: 2rem;
+  text-align: right;
+  line-height: 0;
+}
+
+.landing__prompt {
+  line-height: 0;
+  opacity: 0;
+  animation: showPrompt, breathePrompt;
+  animation-duration: 2s, 4s;
+  animation-delay: 1.5s, 3.5s;
+  animation-fill-mode: forwards;
+  animation-direction: normal, alternate;
+  animation-iteration-count: 1, infinite;
+}
+
+@keyframes showPrompt {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes breathePrompt {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
