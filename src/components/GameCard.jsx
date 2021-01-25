@@ -25,37 +25,6 @@ function GameCard({ data }) {
     });
   }, [data]);
 
-  // const setPicture = () => {
-  //   const picture = data.background_image;
-  //   console.log("picture", picture);
-  //   if (!picture) {
-  //     setHidden(true);
-  //     return null;
-  //   } else
-  //     return (
-  //       <img
-  //         className="gameCard__img"
-  //         src={picture}
-  //         alt={data.name + "'s Picture"}
-  //       />
-  //     );
-  // };
-
-  // const setMetacritic = () => {
-  //   const metacritic = data.metacritic;
-  //   const color =
-  //     metacritic >= 75 ? "green" : metacritic >= 50 ? "yellow" : "red";
-  //   return <p className={color}>{metacritic}</p>;
-  // };
-
-  // const setESRB = () => {
-  //   const esrbIndex = data.esrb_rating?.id;
-  //   const esrb = ESRBRatings.filter((r) => r.id === esrbIndex);
-  //   if (esrb.length > 0)
-  //     return <img src={esrb[0].icon} alt={esrb[0].name + "'s icon"} />;
-  //   return null;
-  // };
-
   const getESRBIcon = (id) => {
     if (id) {
       const esrb = ESRBRatings.filter((r) => r.id === id);
@@ -98,10 +67,15 @@ function GameCard({ data }) {
             </p>
           </div>
           <div className={`gameCard__ageRating ${!gameData.esrb && "hidden"}`}>
-            <img
-              src={getESRBIcon(gameData.esrb?.id)}
-              alt={gameData.esrb?.name + "'s icon"}
-            />
+            <a
+              href="https://en.wikipedia.org/wiki/Entertainment_Software_Rating_Board"
+              target="_blank"
+            >
+              <img
+                src={getESRBIcon(gameData.esrb?.id)}
+                alt={gameData.esrb?.name + "'s icon"}
+              />
+            </a>
           </div>
         </div>
       </div>

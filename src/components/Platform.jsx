@@ -15,13 +15,15 @@ const Platform = ({ id }) => {
 
   return (
     <div className={`platform ${hidden && "hidden"}`}>
-      <img
-        className={`platform__icon ${
-          curPlatform[0]?.name === "Nintendo" && "nintendo"
-        }`}
-        src={curPlatform[0]?.icon}
-        alt={curPlatform[0]?.name + " icon"}
-      />
+      <a href={curPlatform[0]?.url} target="_blank">
+        <img
+          className={`platform__icon ${
+            curPlatform[0]?.name === "Nintendo" && "nintendo"
+          }`}
+          src={curPlatform[0]?.icon}
+          alt={curPlatform[0]?.name + " icon"}
+        />
+      </a>
     </div>
   );
 };

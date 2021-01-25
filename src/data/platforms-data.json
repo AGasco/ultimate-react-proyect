@@ -2,36 +2,43 @@
   {
     "id": 1,
     "name": "PC",
-    "icon": "/imgs/platforms/steam-icon.png"
+    "icon": "/imgs/platforms/steam-icon.png",
+    "url": "https://store.steampowered.com/"
   },
   {
     "id": 2,
     "name": "PlayStation",
-    "icon": "/imgs/platforms/playstation-icon.png"
+    "icon": "/imgs/platforms/playstation-icon.png",
+    "url": "https://www.playstation.com/en-gb/"
   },
   {
     "id": 3,
     "name": "Xbox",
-    "icon": "/imgs/platforms/xbox-icon.webp"
+    "icon": "/imgs/platforms/xbox-icon.webp",
+    "url": "https://www.xbox.com/en-gb"
   },
   {
     "id": 4,
     "name": "iOS",
-    "icon": "/imgs/platforms/ios-icon.png"
+    "icon": "/imgs/platforms/ios-icon.png",
+    "url": "https://www.apple.com/es/ios/ios-14/"
   },
   {
     "id": 5,
     "name": "Apple Macintosh",
-    "icon": "/imgs/platforms/apple-icon.png"
+    "icon": "/imgs/platforms/apple-icon.png",
+    "url": "https://www.apple.com/"
   },
   {
     "id": 8,
     "name": "Android",
-    "icon": "/imgs/platforms/android-icon.png"
+    "icon": "/imgs/platforms/android-icon.png",
+    "url": "https://www.android.com/"
   },
   {
     "id": 7,
     "name": "Nintendo",
-    "icon": "/imgs/platforms/nintendo-icon.png"
+    "icon": "/imgs/platforms/nintendo-icon.png",
+    "url": "https://www.nintendo.com/"
   }
 ]
