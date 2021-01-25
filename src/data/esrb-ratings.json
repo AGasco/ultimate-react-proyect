@@ -1,0 +1,25 @@
+[
+  { "id": 0, "name": "Children", "icon": "/imgs/esrb/children-icon.png" },
+  { "id": 1, "name": "Everyone", "icon": "/imgs/esrb/everyone-icon.png" },
+  {
+    "id": 2,
+    "name": "Everyone 10+",
+    "icon": "/imgs/esrb/everyone-10-icon.png"
+  },
+  { "id": 3, "name": "Teen", "icon": "/imgs/esrb/teen-icon.png" },
+  {
+    "id": 4,
+    "name": "Mature",
+    "icon": "/imgs/esrb/mature-icon.png"
+  },
+  {
+    "id": 5,
+    "name": "Adults Only",
+    "icon": "/imgs/esrb/adults-icon.png"
+  },
+  {
+    "id": 6,
+    "name": "Rate Pending",
+    "icon": "/imgs/esrb/rating-pendant-icon.png"
+  }
+]

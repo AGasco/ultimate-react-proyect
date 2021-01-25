@@ -12,7 +12,7 @@ function Games() {
 
   const fetchGamesData = async () => {
     await axios
-      .get("/games")
+      .get("/games?page_size=40")
       .then((res) => {
         console.log(res.data.results);
         setGames(res.data.results);
@@ -23,9 +23,11 @@ function Games() {
   return (
     <div className="games">
       <h1>GAMES</h1>
-      {games?.map((g) => (
-        <GameCard data={g} />
-      ))}
+      <div className="games__container">
+        {games?.map((g) => (
+          <GameCard data={g} />
+        ))}
+      </div>
     </div>
   );
 }

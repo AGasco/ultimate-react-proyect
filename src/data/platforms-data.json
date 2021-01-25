@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "PC",
+    "icon": "/imgs/platforms/steam-icon.png"
+  },
+  {
+    "id": 2,
+    "name": "PlayStation",
+    "icon": "/imgs/platforms/playstation-icon.png"
+  },
+  {
+    "id": 3,
+    "name": "Xbox",
+    "icon": "/imgs/platforms/xbox-icon.webp"
+  },
+  {
+    "id": 4,
+    "name": "iOS",
+    "icon": "/imgs/platforms/ios-icon.png"
+  },
+  {
+    "id": 5,
+    "name": "Apple Macintosh",
+    "icon": "/imgs/platforms/apple-icon.png"
+  },
+  {
+    "id": 8,
+    "name": "Android",
+    "icon": "/imgs/platforms/android-icon.png"
+  },
+  {
+    "id": 7,
+    "name": "Nintendo",
+    "icon": "/imgs/platforms/nintendo-icon.png"
+  }
+]
