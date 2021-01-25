@@ -10,6 +10,7 @@
   /* padding-bottom: 20px; */
   border-radius: 0.4em;
   margin: 0 20px 30px;
+  position: relative;
 }
 
 .gameCard__img {
@@ -43,28 +44,41 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  padding-bottom: 5%;
 }
 
-.gameCard__footer {
+/* .gameCard__footer {
   border-top: 1px solid #777;
   display: flex;
   width: 100%;
   padding: 5px 0;
-}
+} */
 
-.gameCard__footer > * {
+/* .gameCard__footer > * {
   flex: 1;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 30px;
-}
+} */
 
 .gameCard__metacritic > * {
+  position: absolute;
+  font-size: 2rem;
+  color: White;
+  top: 3%;
+  left: 3%;
   width: max-content;
-  padding: 3px 5px;
+  padding: 3px 7.5px;
   border-radius: 5px;
+}
+
+.gameCard__ageRating img {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width: 40px;
 }
 
 .gameCard__metacritic > .green {
@@ -75,8 +89,4 @@
 }
 .gameCard__metacritic > .red {
   background-color: var(--metacritic-red);
-}
-
-.gameCard__ageRating img {
-  width: 20px;
 }

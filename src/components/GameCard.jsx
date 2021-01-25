@@ -52,32 +52,32 @@ function GameCard({ data }) {
             <Platform id={p.platform.id} />
           ))}
         </div>
-        <div className="gameCard__footer">
-          <div className="gameCard__metacritic">
-            <p
-              className={
-                gameData.metacritic >= 75
-                  ? "green"
-                  : gameData.metacritic >= 50
-                  ? "yellow"
-                  : "red"
-              }
-            >
-              {gameData.metacritic}
-            </p>
-          </div>
-          <div className={`gameCard__ageRating ${!gameData.esrb && "hidden"}`}>
-            <a
-              href="https://en.wikipedia.org/wiki/Entertainment_Software_Rating_Board"
-              target="_blank"
-            >
-              <img
-                src={getESRBIcon(gameData.esrb?.id)}
-                alt={gameData.esrb?.name + "'s icon"}
-              />
-            </a>
-          </div>
-        </div>
+      </div>
+      <div className="gameCard__metacritic">
+        <p
+          className={
+            gameData.metacritic >= 75
+              ? "green"
+              : gameData.metacritic >= 50
+              ? "yellow"
+              : gameData.metacritic > 0
+              ? "red"
+              : "hidden"
+          }
+        >
+          {gameData.metacritic}
+        </p>
+      </div>
+      <div className={`gameCard__ageRating ${!gameData.esrb && "hidden"}`}>
+        <a
+          href="https://en.wikipedia.org/wiki/Entertainment_Software_Rating_Board"
+          target="_blank"
+        >
+          <img
+            src={getESRBIcon(gameData.esrb?.id)}
+            alt={gameData.esrb?.name + "'s icon"}
+          />
+        </a>
       </div>
     </div>
   );
