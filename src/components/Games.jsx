@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from "react";
-import getGames from "./../axios";
+import GameCard from "./GameCard";
+import axios from "./../axios.js";
 import "./../styles/Games.css";
 
 function Games() {
-  const [games, setGames] = useState(getGames);
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
-    console.log("GAMES", games);
+    fetchGamesData();
   }, []);
+
+  const fetchGamesData = async () => {
+    await axios
+      .get("/games")
+      .then((res) => {
+        console.log(res.data.results);
+        setGames(res.data.results);
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="games">
       <h1>GAMES</h1>
+      {games?.map((g) => (
+        <GameCard data={g} />
+      ))}
     </div>
   );
 }

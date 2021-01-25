@@ -1,0 +1,12 @@
+.platform.hidden {
+  display: none;
+}
+
+.platform__icon {
+  width: 30px;
+  margin: 0 5px;
+}
+
+.platform__icon.nintendo {
+  width: 60px;
+}
