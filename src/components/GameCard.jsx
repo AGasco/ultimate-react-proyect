@@ -28,8 +28,6 @@ function GameCard({ data }) {
   };
 
   useEffect(() => {
-    console.log("esrb", data.esrb_rating);
-
     setGameData({
       ...gameData,
       name: data.name,
@@ -37,17 +35,14 @@ function GameCard({ data }) {
       metacritic: data.metacritic,
       platforms: data.parent_platforms,
       esrb: data.esrb_rating,
-      video: data.clip.video,
+      video: data.clip?.video,
     });
   }, [data]);
 
   const getESRBIcon = (id) => {
     if (id) {
       const esrb = ESRBRatings.filter((r) => r.id === id);
-      console.log("id", id);
-      console.log("esbr", esrb);
       if (esrb.length > 0) {
-        console.log("returning", esrb.icon);
         return esrb[0].icon;
       }
     }
@@ -65,7 +60,7 @@ function GameCard({ data }) {
       <div className="gameCard__bottom">
         <h3 className="gameCard__title">{gameData.name}</h3>
         <div className="gameCard__platforms">
-          {gameData.platforms.map((p) => (
+          {gameData.platforms?.map((p) => (
             <Platform id={p.platform.id} />
           ))}
         </div>
