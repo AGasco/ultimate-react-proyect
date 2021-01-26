@@ -12,15 +12,17 @@ function Games() {
   const [curGenres, setCurGenres] = useState(
     Array.from({ length: 19 }, (_, i) => i + 1)
   );
+  const [curMetacritic, setCurMetacritic] = useState([0, 100]);
 
   useEffect(() => {
     fetchGamesData();
-  }, [searchQuery, curPlatforms, curGenres]);
+  }, [searchQuery, curPlatforms, curGenres, curMetacritic]);
 
   const fetchGamesData = async () => {
     const query = `/games?page_size=40
       &parent_platforms=${curPlatforms}
-      &genres=${curGenres}${searchQuery}`;
+      &genres=${curGenres}${searchQuery}
+      &metacritic=${curMetacritic[0]},${curMetacritic[1]}`;
     console.log("query", query);
     await axios
       .get(query)
@@ -59,12 +61,19 @@ function Games() {
     setCurGenres(activeGenres);
   };
 
+  const handleMetacriticChange = (e, newValue) => {
+    console.log("changeCommitted", newValue);
+    setCurMetacritic(newValue);
+  };
+
   return (
     <div className="games">
       <div className="games__left">
         <Sidebar
           setCurPlatforms={handlePlatformsChange}
           setCurGenres={handleGenresChange}
+          curMetacritic={curMetacritic}
+          setCurMetacritic={handleMetacriticChange}
         />
       </div>
       <div className="games__right">

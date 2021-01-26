@@ -12,10 +12,6 @@ const Sidebar = ({ setCurPlatforms, setCurGenres, setCurMetacritic }) => {
     setMetacriticScore(newValue);
   };
 
-  useEffect(() => {
-    console.log("metacritic", metacriticScore);
-  }, [metacriticScore]);
-
   return (
     <div className="sidebar">
       <h1 className="sidebar__title">The Ultimate Games Display</h1>
@@ -60,6 +56,7 @@ const Sidebar = ({ setCurPlatforms, setCurGenres, setCurMetacritic }) => {
           <Slider
             value={metacriticScore}
             onChange={handleMetacriticChange}
+            onChangeCommitted={setCurMetacritic}
             valueLabelDisplay="on"
           />
         </div>
