@@ -13,21 +13,23 @@ function Games() {
     Array.from({ length: 19 }, (_, i) => i + 1)
   );
   const [curMetacritic, setCurMetacritic] = useState([0, 100]);
+  const [curReleaseDate, setCurReleaseDate] = useState("1970-01-01,2021-12-31");
 
   useEffect(() => {
     fetchGamesData();
-  }, [searchQuery, curPlatforms, curGenres, curMetacritic]);
+  }, [searchQuery, curPlatforms, curGenres, curMetacritic, curReleaseDate]);
 
   const fetchGamesData = async () => {
     const query = `/games?page_size=40
+      &search_exact=true${searchQuery}
       &parent_platforms=${curPlatforms}
-      &genres=${curGenres}${searchQuery}
-      &metacritic=${curMetacritic[0]},${curMetacritic[1]}`;
+      &genres=${curGenres}
+      &metacritic=${curMetacritic[0]},${curMetacritic[1]}
+      &dates=${curReleaseDate}`;
     console.log("query", query);
     await axios
       .get(query)
       .then((res) => {
-        console.log(res.data.results);
         setGames(res.data.results);
       })
       .catch((err) => console.error(err));
@@ -62,8 +64,17 @@ function Games() {
   };
 
   const handleMetacriticChange = (e, newValue) => {
-    console.log("changeCommitted", newValue);
-    setCurMetacritic(newValue);
+    //default
+    console.log("newValue", newValue);
+    if (newValue.includes(10) && newValue.includes(100))
+      setCurMetacritic([0, 100]);
+    else setCurMetacritic(newValue);
+  };
+
+  const handleReleaseDateChange = (newValue) => {
+    const fromYear = newValue[0].toString();
+    const toYear = newValue[1].toString();
+    setCurReleaseDate(`${fromYear}-01-01,${toYear}-12-31`);
   };
 
   return (
@@ -74,6 +85,7 @@ function Games() {
           setCurGenres={handleGenresChange}
           curMetacritic={curMetacritic}
           setCurMetacritic={handleMetacriticChange}
+          setCurReleaseDate={handleReleaseDateChange}
         />
       </div>
       <div className="games__right">
