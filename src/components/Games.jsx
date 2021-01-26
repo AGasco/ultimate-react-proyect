@@ -22,7 +22,7 @@ function Games() {
 
   return (
     <div className="games">
-      <h1>GAMES</h1>
+      {/* <h1>GAMES</h1> */}
       <div className="games__container">
         {games?.map((g) => (
           <GameCard data={g} />
