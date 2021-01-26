@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from "react";
 import Platform from "./Platform";
 import ESRBRatings from "./../data/esrb-ratings.json";
+import Modal from "react-modal";
+import ReactPlayer from "react-player/youtube";
 import "./../styles/GameCard.css";
 
+Modal.setAppElement("#root");
+
 function GameCard({ data }) {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const [gameData, setGameData] = useState({
     name: "",
     picture: "",
     metacritic: "",
     platforms: [],
     esrb: "",
+    video: "",
   });
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   useEffect(() => {
     console.log("esrb", data.esrb_rating);
@@ -22,6 +37,7 @@ function GameCard({ data }) {
       metacritic: data.metacritic,
       platforms: data.parent_platforms,
       esrb: data.esrb_rating,
+      video: data.clip.video,
     });
   }, [data]);
 
@@ -44,6 +60,7 @@ function GameCard({ data }) {
         className="gameCard__img"
         src={gameData.picture}
         alt={gameData.name + "'s Picture"}
+        onClick={openModal}
       />
       <div className="gameCard__bottom">
         <h3 className="gameCard__title">{gameData.name}</h3>
@@ -79,6 +96,15 @@ function GameCard({ data }) {
           />
         </a>
       </div>
+      <Modal isOpen={modalOpen} onRequestClose={closeModal}>
+        <ReactPlayer
+          width={"100%"}
+          height={"100%"}
+          controls={true}
+          playing={true}
+          url={`https://youtu.be/${gameData.video}`}
+        />
+      </Modal>
     </div>
   );
 }
