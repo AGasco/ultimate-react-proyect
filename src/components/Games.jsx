@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import GameCard from "./GameCard";
-import SearchBar from "./SearchBar";
+import Searchbar from "./Searchbar";
 import axios from "./../axios.js";
 import "./../styles/Games.css";
+import Sidebar from "./Sidebar";
 
 function Games() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,12 +32,16 @@ function Games() {
 
   return (
     <div className="games">
-      {/* <h1>GAMES</h1> */}
-      <SearchBar setSearchQuery={setSearchQuery} />
-      <div className="games__container">
-        {games?.map((g) => (
-          <GameCard data={g} />
-        ))}
+      <div className="games__left">
+        <Sidebar />
+      </div>
+      <div className="games__right">
+        <Searchbar setSearchQuery={setSearchQuery} />
+        <div className="games__container">
+          {games?.map((g) => (
+            <GameCard data={g} />
+          ))}
+        </div>
       </div>
     </div>
   );

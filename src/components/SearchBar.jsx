@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./../styles/SearchBar.css";
+import "./../styles/Searchbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,12 +17,13 @@ const SearchBar = ({ setSearchQuery }) => {
   };
 
   return (
-    <div className="searchBar">
-      <div className="searchBar__container">
+    <div className="searchbar">
+      <div className="searchbar__container">
         <form onSubmit={handleSubmit}>
           <FontAwesomeIcon icon={faSearch} />
           <input
             value={search}
+            placeholder="Search for games..."
             onChange={handleChange}
             onSubmit={handleSubmit}
             type="text"
