@@ -7,12 +7,14 @@ function App() {
   return (
     <div className="app">
       <Router>
-        <Route path="/games">
-          <Games />
-        </Route>
-        <Route exact path="/">
-          <Landing />
-        </Route>
+        <Switch>
+          <Route path="/games">
+            <Games />
+          </Route>
+          <Route exact path="/">
+            <Landing />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

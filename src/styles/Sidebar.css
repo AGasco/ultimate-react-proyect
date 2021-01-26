@@ -75,3 +75,19 @@
   /* padding-right: 10px; */
   /* text-align: right; */
 }
+
+.sidebar__sectionContainer.metacritic {
+  height: 15vh !important;
+  flex: 0;
+}
+
+.sidebar__metacriticContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar__metacriticContainer .MuiSlider-root {
+  width: 80%;
+  padding-top: 50px;
+}

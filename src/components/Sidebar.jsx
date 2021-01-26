@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import platformsData from "./../data/platforms-data.json";
 import genresData from "./../data/genres-data.json";
 import Switch from "@material-ui/core/Switch";
+import Slider from "@material-ui/core/Slider";
 import "./../styles/Sidebar.css";
 
-function Sidebar({ setCurPlatforms, setCurGenres }) {
+const Sidebar = ({ setCurPlatforms, setCurGenres, setCurMetacritic }) => {
+  const [metacriticScore, setMetacriticScore] = useState([0, 100]);
+
+  const handleMetacriticChange = (e, newValue) => {
+    setMetacriticScore(newValue);
+  };
+
+  useEffect(() => {
+    console.log("metacritic", metacriticScore);
+  }, [metacriticScore]);
+
   return (
     <div className="sidebar">
       <h1 className="sidebar__title">The Ultimate Games Display</h1>
@@ -43,14 +54,21 @@ function Sidebar({ setCurPlatforms, setCurGenres }) {
           </ul>
         </div>
       </div>
-      <div className="sidebar__sectionContainer">
+      <div className="sidebar__sectionContainer metacritic">
         <h4 className="sidebar__subtitle">Metacritic score</h4>
+        <div className="sidebar__metacriticContainer">
+          <Slider
+            value={metacriticScore}
+            onChange={handleMetacriticChange}
+            valueLabelDisplay="on"
+          />
+        </div>
       </div>
       <div className="sidebar__sectionContainer">
         <h4 className="sidebar__subtitle">ESRB</h4>
       </div>
     </div>
   );
-}
+};
 
 export default Sidebar;
