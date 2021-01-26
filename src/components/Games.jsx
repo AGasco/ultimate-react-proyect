@@ -7,6 +7,7 @@ import Sidebar from "./Sidebar";
 
 function Games() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [curPlatforms, setCurPlatforms] = useState([1, 2, 3, 4, 5, 7, 8]);
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -15,19 +16,15 @@ function Games() {
   }, [searchQuery]);
 
   const fetchGamesData = async () => {
+    const query = `/games?page_size=40&parent_platforms=${curPlatforms}${searchQuery}`;
+    console.log("query", query);
     await axios
-      .get(`/games?page_size=40${searchQuery}`)
+      .get(query)
       .then((res) => {
         console.log(res.data.results);
         setGames(res.data.results);
       })
       .catch((err) => console.error(err));
-  };
-
-  const handleSearchChange = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-    // setSearch(e.target.value);
   };
 
   return (
@@ -39,7 +36,7 @@ function Games() {
         <Searchbar setSearchQuery={setSearchQuery} />
         <div className="games__container">
           {games?.map((g) => (
-            <GameCard data={g} />
+            <GameCard data={g} curPlatforms={curPlatforms} />
           ))}
         </div>
       </div>

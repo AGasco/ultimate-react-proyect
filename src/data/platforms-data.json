@@ -18,10 +18,10 @@
     "url": "https://www.xbox.com/en-gb"
   },
   {
-    "id": 4,
-    "name": "iOS",
-    "icon": "/imgs/platforms/ios-icon.png",
-    "url": "https://www.apple.com/es/ios/ios-14/"
+    "id": 7,
+    "name": "Nintendo",
+    "icon": "/imgs/platforms/nintendo-icon.png",
+    "url": "https://www.nintendo.com/"
   },
   {
     "id": 5,
@@ -30,15 +30,15 @@
     "url": "https://www.apple.com/"
   },
   {
+    "id": 4,
+    "name": "iOS",
+    "icon": "/imgs/platforms/ios-icon.png",
+    "url": "https://www.apple.com/es/ios/ios-14/"
+  },
+  {
     "id": 8,
     "name": "Android",
     "icon": "/imgs/platforms/android-icon.png",
     "url": "https://www.android.com/"
-  },
-  {
-    "id": 7,
-    "name": "Nintendo",
-    "icon": "/imgs/platforms/nintendo-icon.png",
-    "url": "https://www.nintendo.com/"
   }
 ]

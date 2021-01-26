@@ -7,7 +7,7 @@ import "./../styles/GameCard.css";
 
 Modal.setAppElement("#root");
 
-function GameCard({ data }) {
+function GameCard({ data, curPlatforms }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [gameData, setGameData] = useState({
@@ -60,9 +60,10 @@ function GameCard({ data }) {
       <div className="gameCard__bottom">
         <h3 className="gameCard__title">{gameData.name}</h3>
         <div className="gameCard__platforms">
-          {gameData.platforms?.map((p) => (
-            <Platform id={p.platform.id} />
-          ))}
+          {gameData.platforms?.map((p) => {
+            if (curPlatforms.includes(p.platform.id))
+              return <Platform id={p.platform.id} />;
+          })}
         </div>
       </div>
       <div className="gameCard__metacritic">
