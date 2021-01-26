@@ -31,6 +31,10 @@
   right: 5%;
 }
 
+.sidebar .sidebar__genresContainer .MuiSwitch-root {
+  right: 0;
+}
+
 .sidebar__title {
   font-size: 3rem;
   padding-bottom: 1vh;
@@ -42,15 +46,32 @@
   flex: 1;
 }
 
-.sidebar__subtitle {
-  padding: 10px;
+.sidebar__sectionContainer.genres {
+  height: 32vh;
 }
 
-.sidebar__platformsContainer {
-  /* height: max-content; */
+.sidebar__subtitle {
+  padding: 10px;
 }
 
 .sidebar__platformIcon {
   width: 20px;
   margin-right: 10px;
+}
+
+.sidebar__genresContainer {
+  height: 30vh;
+}
+
+.sidebar__genresContainer > ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.sidebar__genresContainer li > p {
+  width: 100%;
+  /* padding-right: 10px; */
+  /* text-align: right; */
 }

@@ -11,7 +11,6 @@ function Games() {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    console.log("fetching");
     fetchGamesData();
   }, [searchQuery, curPlatforms]);
 
@@ -29,10 +28,8 @@ function Games() {
 
   const handlePlatformsChange = (e) => {
     const platform = e.target.value;
-    console.log("platform", platform);
     const checked = e.target.checked;
     let activePlatforms = [...curPlatforms];
-    console.log("activePlatforms before", activePlatforms);
 
     if (checked) {
       activePlatforms.unshift(Number(platform));
