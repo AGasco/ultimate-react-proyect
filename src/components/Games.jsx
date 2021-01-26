@@ -6,16 +6,21 @@ import "./../styles/Games.css";
 import Sidebar from "./Sidebar";
 
 function Games() {
+  const [games, setGames] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [curPlatforms, setCurPlatforms] = useState([1, 2, 3, 4, 5, 7, 8]);
-  const [games, setGames] = useState([]);
+  const [curGenres, setCurGenres] = useState(
+    Array.from({ length: 19 }, (_, i) => i + 1)
+  );
 
   useEffect(() => {
     fetchGamesData();
-  }, [searchQuery, curPlatforms]);
+  }, [searchQuery, curPlatforms, curGenres]);
 
   const fetchGamesData = async () => {
-    const query = `/games?page_size=40&parent_platforms=${curPlatforms}${searchQuery}`;
+    const query = `/games?page_size=40
+      &parent_platforms=${curPlatforms}
+      &genres=${curGenres}${searchQuery}`;
     console.log("query", query);
     await axios
       .get(query)
@@ -40,10 +45,27 @@ function Games() {
     setCurPlatforms(activePlatforms);
   };
 
+  const handleGenresChange = (e) => {
+    const genre = e.target.value;
+    const checked = e.target.checked;
+    let activeGenres = [...curGenres];
+
+    if (checked) {
+      activeGenres.unshift(Number(genre));
+      activeGenres.sort();
+    } else {
+      activeGenres = activeGenres.filter((g) => g != genre);
+    }
+    setCurGenres(activeGenres);
+  };
+
   return (
     <div className="games">
       <div className="games__left">
-        <Sidebar setCurPlatforms={handlePlatformsChange} />
+        <Sidebar
+          setCurPlatforms={handlePlatformsChange}
+          setCurGenres={handleGenresChange}
+        />
       </div>
       <div className="games__right">
         <Searchbar setSearchQuery={setSearchQuery} />

@@ -4,7 +4,7 @@ import genresData from "./../data/genres-data.json";
 import Switch from "@material-ui/core/Switch";
 import "./../styles/Sidebar.css";
 
-function Sidebar({ setCurPlatforms }) {
+function Sidebar({ setCurPlatforms, setCurGenres }) {
   return (
     <div className="sidebar">
       <h1 className="sidebar__title">The Ultimate Games Display</h1>
@@ -24,7 +24,6 @@ function Sidebar({ setCurPlatforms }) {
                   value={p.id}
                   onChange={setCurPlatforms}
                   defaultChecked
-                  inputProps={{ "aria-label": "checkbox with default color" }}
                 />
               </li>
             ))}
@@ -37,12 +36,7 @@ function Sidebar({ setCurPlatforms }) {
           <ul>
             {genresData.map((g) => (
               <li>
-                <Switch
-                  value={g.id}
-                  onChange={setCurPlatforms}
-                  defaultChecked
-                  inputProps={{ "aria-label": "checkbox with default color" }}
-                />
+                <Switch value={g.id} onChange={setCurGenres} defaultChecked />
                 <p>{g.name}</p>
               </li>
             ))}
