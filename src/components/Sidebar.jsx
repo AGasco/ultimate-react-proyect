@@ -3,7 +3,7 @@ import platformsData from "./../data/platforms-data.json";
 import Switch from "@material-ui/core/Switch";
 import "./../styles/Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ setCurPlatforms }) {
   return (
     <div className="sidebar">
       <h1 className="sidebar__title">The Ultimate Games Display</h1>
@@ -20,6 +20,8 @@ function Sidebar() {
                 />
                 {p.name}
                 <Switch
+                  value={p.id}
+                  onChange={setCurPlatforms}
                   defaultChecked
                   inputProps={{ "aria-label": "checkbox with default color" }}
                 />

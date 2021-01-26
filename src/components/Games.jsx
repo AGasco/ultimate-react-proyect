@@ -13,7 +13,7 @@ function Games() {
   useEffect(() => {
     console.log("fetching");
     fetchGamesData();
-  }, [searchQuery]);
+  }, [searchQuery, curPlatforms]);
 
   const fetchGamesData = async () => {
     const query = `/games?page_size=40&parent_platforms=${curPlatforms}${searchQuery}`;
@@ -27,10 +27,26 @@ function Games() {
       .catch((err) => console.error(err));
   };
 
+  const handlePlatformsChange = (e) => {
+    const platform = e.target.value;
+    console.log("platform", platform);
+    const checked = e.target.checked;
+    let activePlatforms = [...curPlatforms];
+    console.log("activePlatforms before", activePlatforms);
+
+    if (checked) {
+      activePlatforms.unshift(Number(platform));
+      activePlatforms.sort();
+    } else {
+      activePlatforms = activePlatforms.filter((p) => p != platform);
+    }
+    setCurPlatforms(activePlatforms);
+  };
+
   return (
     <div className="games">
       <div className="games__left">
-        <Sidebar />
+        <Sidebar setCurPlatforms={handlePlatformsChange} />
       </div>
       <div className="games__right">
         <Searchbar setSearchQuery={setSearchQuery} />
