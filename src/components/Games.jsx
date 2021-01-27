@@ -142,7 +142,7 @@ function Games() {
         <Searchbar setSearchQuery={setSearchQuery} />
         <div className="games__container">
           {games?.map((g) => (
-            <GameCard data={g} curPlatforms={curPlatforms} />
+            <GameCard key={g.id} data={g} curPlatforms={curPlatforms} />
           ))}
         </div>
         <div className="games__pageBtns">

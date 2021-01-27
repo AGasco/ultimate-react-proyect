@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import platformsData from "./../data/platforms-data.json";
 import genresData from "./../data/genres-data.json";
 import Switch from "@material-ui/core/Switch";
@@ -48,7 +48,7 @@ const Sidebar = ({
         <div className="sidebar__platformsContainer">
           <ul>
             {platformsData.map((p) => (
-              <li>
+              <li key={p.name}>
                 <img
                   className="sidebar__platformIcon"
                   src={p.icon}
@@ -70,7 +70,7 @@ const Sidebar = ({
         <div className="sidebar__genresContainer">
           <ul>
             {genresData.map((g) => (
-              <li>
+              <li key={g.id}>
                 <Switch value={g.id} onChange={setCurGenres} defaultChecked />
                 <p>{g.name}</p>
               </li>
