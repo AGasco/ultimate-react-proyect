@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import GameCard from "./GameCard";
 import Searchbar from "./Searchbar";
+import Sidebar from "./Sidebar";
 import axios from "./../axios.js";
 import "./../styles/Games.css";
-import Sidebar from "./Sidebar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 function Games() {
   const [games, setGames] = useState([]);
@@ -14,6 +17,7 @@ function Games() {
   );
   const [curMetacritic, setCurMetacritic] = useState([10, 100]);
   const [curReleaseDate, setCurReleaseDate] = useState("1970-01-01,2021-12-31");
+  const [curPage, setCurPage] = useState(1);
 
   useEffect(() => {
     //Building query
@@ -22,14 +26,22 @@ function Games() {
       query = query.concat(`&search_exact=true${searchQuery}`);
     if (curReleaseDate != "1970-01-01,2021-12-31")
       query = query.concat(`&dates=${curReleaseDate}`);
+    if (curPage != 1) query = query.concat(`&page=${curPage}`);
     query = query.concat(`&metacritic=${curMetacritic[0]},${curMetacritic[1]}`);
     query = query.concat(
-      `&parent_platforms=${curPlatforms}&genres=${curGenres}&ordering=-metacritic`
+      `&parent_platforms=${curPlatforms}&genres=${curGenres}`
     );
     console.log("query", query);
 
     fetchGamesData(query);
-  }, [searchQuery, curPlatforms, curGenres, curMetacritic, curReleaseDate]);
+  }, [
+    searchQuery,
+    curPlatforms,
+    curGenres,
+    curMetacritic,
+    curReleaseDate,
+    curPage,
+  ]);
 
   const fetchGamesData = async (query) => {
     await axios
@@ -82,6 +94,14 @@ function Games() {
     setCurReleaseDate(`${fromYear}-01-01,${toYear}-12-31`);
   };
 
+  const handlePageClick = (dir) => {
+    if (dir === "prev" && curPage > 1) {
+      setCurPage(curPage - 1);
+    } else if (dir === "next") {
+      setCurPage(curPage + 1);
+    } else console.error("Wrong direction inputted");
+  };
+
   return (
     <div className="games">
       <div className="games__left">
@@ -99,6 +119,20 @@ function Games() {
           {games?.map((g) => (
             <GameCard data={g} curPlatforms={curPlatforms} />
           ))}
+        </div>
+        <div className="games__pageBtns">
+          <button
+            className="games__previousBtn"
+            onClick={() => handlePageClick("prev")}
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+          <button
+            className="games__nextBtn"
+            onClick={() => handlePageClick("next")}
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
         </div>
       </div>
     </div>

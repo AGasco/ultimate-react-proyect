@@ -12,7 +12,7 @@ const Sidebar = ({
   setCurReleaseDate,
 }) => {
   const [metacriticScore, setMetacriticScore] = useState([0, 100]);
-  const [releaseDate, setReleaseDate] = useState([1960, 2021]);
+  const [releaseDate, setReleaseDate] = useState([1970, 2021]);
 
   const handleMetacriticChange = (e, newValue) => {
     setMetacriticScore(newValue);
@@ -119,6 +119,14 @@ const Sidebar = ({
               />
             </form>
           </div>
+        </div>
+      </div>
+      <div className="sidebar__sectionContainer orderBy">
+        <h4 className="sidebar__subtitle">Order by</h4>
+        <div className="sidebar__orderByContainer">
+          <button className="sidebar__orderBtn">Name</button>
+          <button className="sidebar__orderBtn">Released</button>
+          <button className="sidebar__orderBtn">Metacritic</button>
         </div>
       </div>
     </div>
