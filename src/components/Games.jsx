@@ -18,6 +18,7 @@ function Games() {
   const [curMetacritic, setCurMetacritic] = useState([10, 100]);
   const [curReleaseDate, setCurReleaseDate] = useState("1970-01-01,2021-12-31");
   const [curPage, setCurPage] = useState(1);
+  const [curOrderBy, setCurOrderBy] = useState("");
 
   useEffect(() => {
     //Building query
@@ -27,6 +28,7 @@ function Games() {
     if (curReleaseDate != "1970-01-01,2021-12-31")
       query = query.concat(`&dates=${curReleaseDate}`);
     if (curPage != 1) query = query.concat(`&page=${curPage}`);
+    if (curOrderBy !== "") query = query.concat(`&ordering=${curOrderBy}`);
     query = query.concat(`&metacritic=${curMetacritic[0]},${curMetacritic[1]}`);
     query = query.concat(
       `&parent_platforms=${curPlatforms}&genres=${curGenres}`
@@ -41,6 +43,7 @@ function Games() {
     curMetacritic,
     curReleaseDate,
     curPage,
+    curOrderBy,
   ]);
 
   const fetchGamesData = async (query) => {
@@ -102,6 +105,27 @@ function Games() {
     } else console.error("Wrong direction inputted");
   };
 
+  const handleOrderByChange = (orderBy) => {
+    console.log("changing orderBy", orderBy);
+    switch (orderBy) {
+      case "name":
+        if (curOrderBy === "name") setCurOrderBy("-name");
+        else setCurOrderBy("name");
+        break;
+      case "released":
+        if (curOrderBy === "released") setCurOrderBy("-released");
+        else setCurOrderBy("released");
+        break;
+      case "metacritic":
+        if (curOrderBy === "-metacritic") setCurOrderBy("metacritic");
+        else setCurOrderBy("-metacritic");
+        break;
+      default:
+        setCurOrderBy("");
+        break;
+    }
+  };
+
   return (
     <div className="games">
       <div className="games__left">
@@ -111,6 +135,7 @@ function Games() {
           curMetacritic={curMetacritic}
           setCurMetacritic={handleMetacriticChange}
           setCurReleaseDate={handleReleaseDateChange}
+          setCurOrderBy={handleOrderByChange}
         />
       </div>
       <div className="games__right">

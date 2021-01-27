@@ -10,6 +10,7 @@ const Sidebar = ({
   setCurGenres,
   setCurMetacritic,
   setCurReleaseDate,
+  setCurOrderBy,
 }) => {
   const [metacriticScore, setMetacriticScore] = useState([0, 100]);
   const [releaseDate, setReleaseDate] = useState([1970, 2021]);
@@ -124,9 +125,24 @@ const Sidebar = ({
       <div className="sidebar__sectionContainer orderBy">
         <h4 className="sidebar__subtitle">Order by</h4>
         <div className="sidebar__orderByContainer">
-          <button className="sidebar__orderBtn">Name</button>
-          <button className="sidebar__orderBtn">Released</button>
-          <button className="sidebar__orderBtn">Metacritic</button>
+          <button
+            onClick={() => setCurOrderBy("name")}
+            className="sidebar__orderBtn"
+          >
+            Name
+          </button>
+          <button
+            onClick={() => setCurOrderBy("released")}
+            className="sidebar__orderBtn"
+          >
+            Released
+          </button>
+          <button
+            onClick={() => setCurOrderBy("metacritic")}
+            className="sidebar__orderBtn"
+          >
+            Metacritic
+          </button>
         </div>
       </div>
     </div>
