@@ -14,16 +14,19 @@
 .games__right {
   flex: 3;
   max-width: 90vw;
-  position: relative;
 }
 
 .games__loading {
   position: absolute;
   top: 30vh;
-  left: 35vw;
+  left: 45vw;
   color: white;
-  font-size: 5rem;
+  font-size: 8rem;
 }
+
+/* .games__right.loading {
+  position: relative;
+} */
 
 .games__container {
   display: flex;
@@ -31,6 +34,11 @@
   padding-top: 2vh;
   justify-content: center;
   align-items: center;
+  z-index: -100;
+}
+
+.games__container * {
+  z-index: 0;
 }
 
 .games__pageBtns {
