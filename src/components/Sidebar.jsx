@@ -3,9 +3,13 @@ import platformsData from "./../data/platforms-data.json";
 import genresData from "./../data/genres-data.json";
 import Switch from "@material-ui/core/Switch";
 import Slider from "@material-ui/core/Slider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import "./../styles/Sidebar.css";
+import { ORDER_BY_SET } from "../redux/gamesActions";
 
 const Sidebar = ({
+  curOrderBy,
   setCurPlatforms,
   setCurGenres,
   setCurMetacritic,
@@ -40,9 +44,27 @@ const Sidebar = ({
     setCurReleaseDate(releaseDate);
   };
 
+  //Dynamic UI
+  const setUpOrderButton = (name) => {
+    return (
+      <button onClick={() => setCurOrderBy(name)} className="sidebar__orderBtn">
+        {setUpOrderIcon(name)}
+        {name[0].toUpperCase() + name.slice(1)}
+      </button>
+    );
+  };
+
+  //Dynamic UI
+  const setUpOrderIcon = (name) => {
+    if (curOrderBy.includes(name)) {
+      if (curOrderBy[0] === "-") return <FontAwesomeIcon icon={faArrowDown} />;
+      else return <FontAwesomeIcon icon={faArrowUp} />;
+    }
+  };
+
   return (
     <div className="sidebar">
-      <h1 className="sidebar__title">The Ultimate Games Display</h1>
+      <h1 className="sidebar__title">THE ULTIMATE GAMES DISPLAY</h1>
       <div className="sidebar__sectionContainer platforms">
         <h4 className="sidebar__subtitle">Platforms</h4>
         <div className="sidebar__platformsContainer">
@@ -125,24 +147,9 @@ const Sidebar = ({
       <div className="sidebar__sectionContainer orderBy">
         <h4 className="sidebar__subtitle">Order by</h4>
         <div className="sidebar__orderByContainer">
-          <button
-            onClick={() => setCurOrderBy("name")}
-            className="sidebar__orderBtn"
-          >
-            Name
-          </button>
-          <button
-            onClick={() => setCurOrderBy("released")}
-            className="sidebar__orderBtn"
-          >
-            Released
-          </button>
-          <button
-            onClick={() => setCurOrderBy("metacritic")}
-            className="sidebar__orderBtn"
-          >
-            Metacritic
-          </button>
+          {setUpOrderButton("name")}
+          {setUpOrderButton("released")}
+          {setUpOrderButton("metacritic")}
         </div>
       </div>
     </div>
