@@ -64,7 +64,7 @@ const Sidebar = ({
 
   return (
     <div className="sidebar">
-      <h1 className="sidebar__title">The Ultimate Games Display</h1>
+      <h1 className="sidebar__title">THE ULTIMATE GAMES DISPLAY</h1>
       <div className="sidebar__sectionContainer platforms">
         <h4 className="sidebar__subtitle">Platforms</h4>
         <div className="sidebar__platformsContainer">
