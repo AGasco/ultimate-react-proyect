@@ -3,7 +3,7 @@
   height: 100%; */
   position: fixed;
   background-color: #374b91;
-  max-width: 325px;
+  max-width: 350px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -132,15 +132,20 @@
   background-color: #f50057;
   border: 1px solid white;
   border-radius: 30px;
-  padding: 5px 10px;
+  padding: 5px 5px;
   width: 30%;
   color: white;
   font-family: "Righteous", cursive;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: center;
   cursor: pointer;
   outline: none;
   transition: all 0.4s;
+}
+
+.sidebar__orderBtn .svg-inline--fa {
+  padding-right: 3px;
+  font-size: 1rem;
 }
 
 .sidebar__orderBtn:hover {

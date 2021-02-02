@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import GameCard from "./GameCard";
-import Searchbar from "./Searchbar";
+import SearchBar from "./SearchBar";
 import Sidebar from "./Sidebar";
 import axios from "./../axios.js";
 import "./../styles/Games.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   fetchDataBegin,
   fetchDataSuccess,
@@ -47,7 +49,6 @@ function Games({
   setGenres,
 }) {
   useEffect(() => {
-    console.log("searchQuery", searchQuery);
     //Building query
     let query = `/games?page_size=40`;
     if (searchQuery) query = query.concat(`&search_exact=true${searchQuery}`);
@@ -164,6 +165,7 @@ function Games({
     <div className="games">
       <div className="games__left">
         <Sidebar
+          curOrderBy={curOrderBy}
           setCurPlatforms={handlePlatformsChange}
           setCurGenres={handleGenresChange}
           curMetacritic={curMetacritic}
@@ -178,7 +180,7 @@ function Games({
         </div>
       ) : (
         <div className="games__right">
-          <Searchbar
+          <SearchBar
             setSearchQuery={handleSearchQueryChange}
             searchQuery={searchQuery}
           />
