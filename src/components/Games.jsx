@@ -122,10 +122,6 @@ function Games({
   };
 
   const handleMetacriticChange = (e, newValue) => {
-    //default
-    console.log("newValue", newValue);
-    // if (newValue.includes(10) && newValue.includes(100))
-    //   setCurMetacritic([0, 100]);
     setMetacritic(newValue);
   };
 
