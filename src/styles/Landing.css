@@ -7,21 +7,34 @@
   justify-content: center;
   align-items: center;
   color: white;
+  background-image: url("https://i.pinimg.com/originals/e8/96/f3/e896f3dc66dc68c9949fc2134a810c0f.jpg");
 }
 
 .landing__titleContainer {
-  font-family: "Righteous", cursive;
-  padding-bottom: 20vh;
+  width: 100vw;
+  height: max-content;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20vh;
+  display: Flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh 0;
 }
 
 .landing__title {
+  text-align: center;
   font-size: 10rem;
+  line-height: 8rem;
 }
 
 .landing__subtitle {
   font-size: 2rem;
-  text-align: right;
-  line-height: 0;
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: 100;
+  width: 40vw;
+  text-align: right !important;
 }
 
 .landing__prompt {

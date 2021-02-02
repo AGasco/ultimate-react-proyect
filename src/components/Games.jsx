@@ -7,18 +7,23 @@ import "./../styles/Games.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  fetchDataBegin,
+  fetchDataSuccess,
+  fetchDataFail,
+} from "./../redux/actions";
+import { connect } from "react-redux";
 
-function Games() {
-  const [games, setGames] = useState([]);
+function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [curPlatforms, setCurPlatforms] = useState([1, 2, 3, 4, 5, 7, 8]);
-  const [curGenres, setCurGenres] = useState(
-    Array.from({ length: 19 }, (_, i) => i + 1)
-  );
   const [curMetacritic, setCurMetacritic] = useState([10, 100]);
   const [curReleaseDate, setCurReleaseDate] = useState("1970-01-01,2021-12-31");
   const [curPage, setCurPage] = useState(1);
   const [curOrderBy, setCurOrderBy] = useState("");
+  const [curGenres, setCurGenres] = useState(
+    Array.from({ length: 19 }, (_, i) => i + 1)
+  );
 
   useEffect(() => {
     //Building query
@@ -47,12 +52,16 @@ function Games() {
   ]);
 
   const fetchGamesData = async (query) => {
+    fetchBegin();
     await axios
       .get(query)
       .then((res) => {
-        setGames(res.data.results);
+        fetchSuccess(res.data.results);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        fetchFail(err);
+        console.error(err);
+      });
   };
 
   const handlePlatformsChange = (e) => {
@@ -138,30 +147,49 @@ function Games() {
           setCurOrderBy={handleOrderByChange}
         />
       </div>
-      <div className="games__right">
-        <Searchbar setSearchQuery={setSearchQuery} />
-        <div className="games__container">
-          {games?.map((g) => (
-            <GameCard key={g.id} data={g} curPlatforms={curPlatforms} />
-          ))}
+      {loading ? (
+        <div className="games__right">
+          <h1 className="games__loading">Loading...</h1>
         </div>
-        <div className="games__pageBtns">
-          <button
-            className="games__previousBtn"
-            onClick={() => handlePageClick("prev")}
-          >
-            <FontAwesomeIcon icon={faChevronLeft} />
-          </button>
-          <button
-            className="games__nextBtn"
-            onClick={() => handlePageClick("next")}
-          >
-            <FontAwesomeIcon icon={faChevronRight} />
-          </button>
+      ) : (
+        <div className="games__right">
+          <Searchbar setSearchQuery={setSearchQuery} />
+          <div className="games__container">
+            {games?.map((g) => (
+              <GameCard key={g.id} data={g} curPlatforms={curPlatforms} />
+            ))}
+          </div>
+          <div className="games__pageBtns">
+            <button
+              className="games__previousBtn"
+              onClick={() => handlePageClick("prev")}
+            >
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
+            <button
+              className="games__nextBtn"
+              onClick={() => handlePageClick("next")}
+            >
+              <FontAwesomeIcon icon={faChevronRight} />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
 
-export default Games;
+const mapStateToProps = (state) => {
+  return {
+    games: state.games,
+    loading: state.loading,
+  };
+};
+
+const mapDispatchToProps = {
+  fetchBegin: fetchDataBegin,
+  fetchSuccess: fetchDataSuccess,
+  fetchFail: fetchDataFail,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Games);
