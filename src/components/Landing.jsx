@@ -16,7 +16,7 @@ const Landing = withRouter(({ history }) => {
         <h3 className="landing__subtitle">to the Ultimage Games Display</h3>
       </div>
 
-      <p className="landing__prompt">Press "F" to proceed</p>
+      <p className="landing__prompt">Press 'F' to proceed</p>
     </div>
   );
 });
