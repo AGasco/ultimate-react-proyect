@@ -47,10 +47,10 @@ function Games({
   setGenres,
 }) {
   useEffect(() => {
+    console.log("searchQuery", searchQuery);
     //Building query
     let query = `/games?page_size=40`;
-    if (searchQuery != "" && searchQuery)
-      query = query.concat(`&search_exact=true${searchQuery}`);
+    if (searchQuery) query = query.concat(`&search_exact=true${searchQuery}`);
     if (curReleaseDate != "1970-01-01,2021-12-31")
       query = query.concat(`&dates=${curReleaseDate}`);
     if (curPage != 1) query = query.concat(`&page=${curPage}`);
@@ -72,6 +72,7 @@ function Games({
     curOrderBy,
   ]);
 
+  //Fetching
   const fetchGamesData = async (query) => {
     fetchBegin();
     await axios
@@ -84,6 +85,12 @@ function Games({
         fetchFail(err);
         console.error(err);
       });
+  };
+
+  //Handling filters change
+  const handleSearchQueryChange = (query) => {
+    console.log("handling search change", query);
+    setSearchQuery(query);
   };
 
   const handlePlatformsChange = (e) => {
@@ -175,7 +182,7 @@ function Games({
         </div>
       ) : (
         <div className="games__right">
-          <Searchbar setSearchQuery={setSearchQuery} />
+          <Searchbar setSearchQuery={handleSearchQueryChange} />
           <div className="games__container">
             {games?.map((g) => (
               <GameCard key={g.id} data={g} curPlatforms={curPlatforms} />
@@ -202,11 +209,10 @@ function Games({
 }
 
 const mapStateToProps = (state) => {
-  console.log("state", state);
   return {
     games: state.fetch.games,
     loading: state.fetch.loading,
-    searchQuery: state.games.searchQuery,
+    searchQuery: state.games.query,
     curPlatforms: state.games.platforms,
     curMetacritic: state.games.metacritic,
     curReleaseDate: state.games.releaseDate,
