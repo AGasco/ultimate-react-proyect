@@ -181,8 +181,8 @@ function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
 
 const mapStateToProps = (state) => {
   return {
-    games: state.games,
-    loading: state.loading,
+    games: state.fetch.games,
+    loading: state.fetch.loading,
   };
 };
 
