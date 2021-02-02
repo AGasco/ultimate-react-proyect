@@ -11,7 +11,7 @@ import {
   fetchDataBegin,
   fetchDataSuccess,
   fetchDataFail,
-} from "./../redux/actions";
+} from "../redux/fetchActions";
 import { connect } from "react-redux";
 
 function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {

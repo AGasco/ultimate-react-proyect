@@ -1,4 +1,4 @@
-import { FETCH_BEGAN, FETCH_SUCCEEDED, FETCH_FAILED } from "./actions";
+import { FETCH_BEGAN, FETCH_SUCCEEDED, FETCH_FAILED } from "./fetchActions";
 
 const initialState = {
   games: [],
