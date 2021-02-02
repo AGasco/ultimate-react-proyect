@@ -12,32 +12,53 @@ import {
   fetchDataSuccess,
   fetchDataFail,
 } from "../redux/fetchActions";
+import {
+  setSearchQuery,
+  setPlatforms,
+  setMetacritic,
+  setReleaseDate,
+  setPage,
+  setOrderBy,
+  setGenres,
+} from "../redux/gamesActions";
 import { connect } from "react-redux";
 
-function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [curPlatforms, setCurPlatforms] = useState([1, 2, 3, 4, 5, 7, 8]);
-  const [curMetacritic, setCurMetacritic] = useState([10, 100]);
-  const [curReleaseDate, setCurReleaseDate] = useState("1970-01-01,2021-12-31");
-  const [curPage, setCurPage] = useState(1);
-  const [curOrderBy, setCurOrderBy] = useState("");
-  const [curGenres, setCurGenres] = useState(
-    Array.from({ length: 19 }, (_, i) => i + 1)
-  );
-
+function Games({
+  //REDUX:Fetch
+  games,
+  loading,
+  fetchBegin,
+  fetchSuccess,
+  fetchFail,
+  //REDUX:Games
+  searchQuery,
+  curPlatforms,
+  curMetacritic,
+  curReleaseDate,
+  curPage,
+  curOrderBy,
+  curGenres,
+  setSearchQuery,
+  setPlatforms,
+  setMetacritic,
+  setReleaseDate,
+  setPage,
+  setOrderBy,
+  setGenres,
+}) {
   useEffect(() => {
+    console.log("searchQuery", searchQuery);
     //Building query
     let query = `/games?page_size=40`;
-    if (searchQuery != "")
-      query = query.concat(`&search_exact=true${searchQuery}`);
+    if (searchQuery) query = query.concat(`&search_exact=true${searchQuery}`);
     if (curReleaseDate != "1970-01-01,2021-12-31")
       query = query.concat(`&dates=${curReleaseDate}`);
     if (curPage != 1) query = query.concat(`&page=${curPage}`);
     if (curOrderBy !== "") query = query.concat(`&ordering=${curOrderBy}`);
+    if (curGenres && curGenres.length < 19)
+      query = query.concat(`&genres=${curGenres}`);
     query = query.concat(`&metacritic=${curMetacritic[0]},${curMetacritic[1]}`);
-    query = query.concat(
-      `&parent_platforms=${curPlatforms}&genres=${curGenres}`
-    );
+    query = query.concat(`&parent_platforms=${curPlatforms}`);
     console.log("query", query);
 
     fetchGamesData(query);
@@ -51,17 +72,25 @@ function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
     curOrderBy,
   ]);
 
+  //Fetching
   const fetchGamesData = async (query) => {
     fetchBegin();
     await axios
       .get(query)
       .then((res) => {
+        console.log("fetchSuccess", res.data);
         fetchSuccess(res.data.results);
       })
       .catch((err) => {
         fetchFail(err);
         console.error(err);
       });
+  };
+
+  //Handling filters change
+  const handleSearchQueryChange = (query) => {
+    console.log("handling search change", query);
+    setSearchQuery(query);
   };
 
   const handlePlatformsChange = (e) => {
@@ -75,7 +104,7 @@ function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
     } else {
       activePlatforms = activePlatforms.filter((p) => p != platform);
     }
-    setCurPlatforms(activePlatforms);
+    setPlatforms(activePlatforms);
   };
 
   const handleGenresChange = (e) => {
@@ -89,28 +118,24 @@ function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
     } else {
       activeGenres = activeGenres.filter((g) => g != genre);
     }
-    setCurGenres(activeGenres);
+    setGenres(activeGenres);
   };
 
   const handleMetacriticChange = (e, newValue) => {
-    //default
-    console.log("newValue", newValue);
-    // if (newValue.includes(10) && newValue.includes(100))
-    //   setCurMetacritic([0, 100]);
-    setCurMetacritic(newValue);
+    setMetacritic(newValue);
   };
 
   const handleReleaseDateChange = (newValue) => {
     const fromYear = newValue[0].toString();
     const toYear = newValue[1].toString();
-    setCurReleaseDate(`${fromYear}-01-01,${toYear}-12-31`);
+    setReleaseDate(`${fromYear}-01-01,${toYear}-12-31`);
   };
 
   const handlePageClick = (dir) => {
     if (dir === "prev" && curPage > 1) {
-      setCurPage(curPage - 1);
+      setPage(curPage - 1);
     } else if (dir === "next") {
-      setCurPage(curPage + 1);
+      setPage(curPage + 1);
     } else console.error("Wrong direction inputted");
   };
 
@@ -118,19 +143,19 @@ function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
     console.log("changing orderBy", orderBy);
     switch (orderBy) {
       case "name":
-        if (curOrderBy === "name") setCurOrderBy("-name");
-        else setCurOrderBy("name");
+        if (curOrderBy === "name") setOrderBy("-name");
+        else setOrderBy("name");
         break;
       case "released":
-        if (curOrderBy === "released") setCurOrderBy("-released");
-        else setCurOrderBy("released");
+        if (curOrderBy === "released") setOrderBy("-released");
+        else setOrderBy("released");
         break;
       case "metacritic":
-        if (curOrderBy === "-metacritic") setCurOrderBy("metacritic");
-        else setCurOrderBy("-metacritic");
+        if (curOrderBy === "-metacritic") setOrderBy("metacritic");
+        else setOrderBy("-metacritic");
         break;
       default:
-        setCurOrderBy("");
+        setOrderBy("");
         break;
     }
   };
@@ -148,12 +173,12 @@ function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
         />
       </div>
       {loading ? (
-        <div className="games__right">
+        <div className="games__right loading">
           <h1 className="games__loading">Loading...</h1>
         </div>
       ) : (
         <div className="games__right">
-          <Searchbar setSearchQuery={setSearchQuery} />
+          <Searchbar setSearchQuery={handleSearchQueryChange} />
           <div className="games__container">
             {games?.map((g) => (
               <GameCard key={g.id} data={g} curPlatforms={curPlatforms} />
@@ -181,8 +206,15 @@ function Games({ games, loading, fetchBegin, fetchSuccess, fetchFail }) {
 
 const mapStateToProps = (state) => {
   return {
-    games: state.games,
-    loading: state.loading,
+    games: state.fetch.games,
+    loading: state.fetch.loading,
+    searchQuery: state.games.query,
+    curPlatforms: state.games.platforms,
+    curMetacritic: state.games.metacritic,
+    curReleaseDate: state.games.releaseDate,
+    curPage: state.games.page,
+    curOrderBy: state.games.orderBy,
+    curGenres: state.games.genres,
   };
 };
 
@@ -190,6 +222,13 @@ const mapDispatchToProps = {
   fetchBegin: fetchDataBegin,
   fetchSuccess: fetchDataSuccess,
   fetchFail: fetchDataFail,
+  setSearchQuery,
+  setPlatforms,
+  setMetacritic,
+  setReleaseDate,
+  setPage,
+  setOrderBy,
+  setGenres,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Games);

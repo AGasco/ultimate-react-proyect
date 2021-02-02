@@ -6,7 +6,7 @@ const initialState = {
   error: null,
 };
 
-const reducer = (state = initialState, action) => {
+const fetchReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_BEGAN:
       return {
@@ -32,4 +32,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default fetchReducer;
