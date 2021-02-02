@@ -178,7 +178,10 @@ function Games({
         </div>
       ) : (
         <div className="games__right">
-          <Searchbar setSearchQuery={handleSearchQueryChange} />
+          <Searchbar
+            setSearchQuery={handleSearchQueryChange}
+            searchQuery={searchQuery}
+          />
           <div className="games__container">
             {games?.map((g) => (
               <GameCard key={g.id} data={g} curPlatforms={curPlatforms} />
