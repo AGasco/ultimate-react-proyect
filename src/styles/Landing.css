@@ -8,6 +8,7 @@
   align-items: center;
   color: white;
   background-image: url("https://i.pinimg.com/originals/e8/96/f3/e896f3dc66dc68c9949fc2134a810c0f.jpg");
+  /* background-position: right; */
 }
 
 .landing__titleContainer {
@@ -63,5 +64,126 @@
   }
   to {
     transform: scale(1.2);
+  }
+}
+
+@media (max-width: 1400px) {
+  .landing {
+    background-size: 200%;
+    background-position: 0% left;
+  }
+}
+
+@media (max-width: 1024px) {
+  .landing {
+    background-size: 300%;
+    background-position: 20% 0%;
+  }
+  .landing__title {
+    font-size: 8rem;
+    line-height: 7rem;
+  }
+  .landing__subtitle {
+    font-size: 1.75rem;
+    margin-left: 15vw;
+  }
+  .landing__prompt {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .landing {
+    background-size: 300%;
+    background-position: 20% 0%;
+  }
+  .landing__title {
+    font-size: 7rem;
+    line-height: 6rem;
+  }
+  .landing__subtitle {
+    font-size: 1.3rem;
+    margin-left: 15vw;
+  }
+  .landing__prompt {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .landing {
+    background-size: 330%;
+    background-position: 20% 0%;
+  }
+  .landing__title {
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+  .landing__subtitle {
+    font-size: 1.2rem;
+    margin-left: 25vw;
+  }
+  .landing__prompt {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .landing {
+    background-size: 350%;
+    background-position: 25% 0%;
+  }
+  .landing__title {
+    font-size: 5rem;
+    line-height: 4rem;
+  }
+  .landing__subtitle {
+    font-size: 1.1rem;
+    margin-left: 25vw;
+  }
+}
+
+@media (max-width: 425px) {
+  .landing {
+    background-size: 500%;
+    background-position: 30% 0%;
+  }
+  .landing__title {
+    font-size: 4rem;
+    line-height: 3rem;
+  }
+  .landing__subtitle {
+    font-size: 1rem;
+    margin-left: 25vw;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .landing {
+    background-size: 600%;
+    background-position: 30% 0%;
+  }
+  .landing__title {
+    font-size: 3.5rem;
+    line-height: 2rem;
+  }
+  .landing__prompt {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .landing {
+    background-position: 32.5% 0%;
+  }
+  .landing__title {
+    font-size: 3rem;
+  }
+  .landing__subtitle {
+    font-size: 0.9rem;
+    margin-left: 25vw;
+    white-space: nowrap;
+    padding-top: 10px;
   }
 }
