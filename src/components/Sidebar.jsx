@@ -112,7 +112,7 @@ const Sidebar = ({
           />
         </div>
       </div>
-      <div className="sidebar__sectionContainer">
+      <div className="sidebar__sectionContainer released">
         <h4 className="sidebar__subtitle">Release Year</h4>
         <div className="sidebar__releaseContainer">
           <div className="sidebar__inputContainer">

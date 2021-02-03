@@ -1,10 +1,11 @@
 .sidebar {
-  /* width: 100%;
-  height: 100%; */
   position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   background-color: #374b91;
   max-width: 350px;
-  height: 100%;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   color: white;
@@ -136,7 +137,7 @@
   border: 1px solid white;
   border-radius: 30px;
   padding: 5px 5px;
-  width: 30%;
+  width: 25%;
   color: white;
   font-family: "Righteous", cursive;
   font-size: 0.9rem;
@@ -153,4 +154,86 @@
 
 .sidebar__orderBtn:hover {
   opacity: 0.7;
+}
+
+@media (max-width: 1600px) {
+  .sidebar__sectionContainer {
+    height: max-content !important;
+  }
+  .sidebar__subtitle {
+    padding: 1px 10px;
+  }
+  .sidebar__genresContainer > ul > li {
+    padding: 1px 0;
+  }
+  .sidebar__orderBtn {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .sidebar {
+    max-width: 320px;
+    max-height: 100vh;
+  }
+
+  .sidebar__title {
+    font-size: 2rem;
+  }
+
+  .sidebar__genresContainer > ul {
+    height: 100%;
+  }
+
+  .sidebar__releaseMin,
+  .sidebar__releaseMax {
+    height: 20px !important;
+    font-size: 1.3rem !important;
+  }
+  .sidebar__orderBtn {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .sidebar__platformsContainer ul > li {
+    padding: 1px 0;
+  }
+  .sidebar__metacriticContainer > * {
+    height: max-content;
+  }
+  .sidebar__releaseContainer > .sidebar__inputContainer > form {
+    display: flex;
+  }
+  .sidebar__releaseContainer > * {
+    flex: 1;
+  }
+  .sidebar__sectionContainer.released > .sidebar__subtitle {
+    margin-top: -5px;
+  }
+  .sidebar__sectionContainer.orderBy > .sidebar__subtitle {
+    margin-top: -15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar > * {
+    flex: 0.175;
+  }
+  .sidebar__sectionContainer {
+    padding: 20px 0;
+  }
+  .sidebar__sectionContainer.genres {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar__genresContainer {
+    height: max-content;
+  }
+  .sidebar__genresContainer ul > li > .MuiSwitch-root {
+    margin-right: 15px;
+  }
+  .sidebar__subtitle {
+    padding: 5px 10px;
+  }
 }
