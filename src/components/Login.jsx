@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 
-const Login = () => {
+const Login = ({ history }) => {
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(history);
+  }, []);
 
   const login = async (email, password) =>
     auth.signInWithEmailAndPassword(email, password);
@@ -21,6 +23,7 @@ const Login = () => {
     try {
       setError("");
       await login(email, password);
+      history.push("/games");
     } catch {
       setError("Failed to log in");
     }

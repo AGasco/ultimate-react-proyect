@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import GameCard from "./GameCard";
 import SearchBar from "./SearchBar";
 import Sidebar from "./Sidebar";
-import axios from "./../axios.js";
+import axios from "./../axios";
+import { API_KEY } from "./../axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -51,7 +52,7 @@ function Games({
 }) {
   useEffect(() => {
     //Building query
-    let query = `/games?page_size=40`;
+    let query = `/games?page_size=40&key=${API_KEY}`;
     if (searchQuery) query = query.concat(`&search_exact=true${searchQuery}`);
     if (curReleaseDate != "1970-01-01,2021-12-31")
       query = query.concat(`&dates=${curReleaseDate}`);
@@ -91,7 +92,6 @@ function Games({
 
   //Handling filters change
   const handleSearchQueryChange = (query) => {
-    console.log("handling search change", query);
     setSearchQuery(query);
   };
 
@@ -171,9 +171,9 @@ function Games({
       <div className="games__left">
         <Sidebar
           curOrderBy={curOrderBy}
+          curMetacritic={curMetacritic}
           setCurPlatforms={handlePlatformsChange}
           setCurGenres={handleGenresChange}
-          curMetacritic={curMetacritic}
           setCurMetacritic={handleMetacriticChange}
           setCurReleaseDate={handleReleaseDateChange}
           setCurOrderBy={handleOrderByChange}

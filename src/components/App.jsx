@@ -5,24 +5,14 @@ import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  // auth.createUserWithEmailAndPassword("abc@abc.com", "123456123456");
-
   return (
     <div className="app">
       <Router>
         <Switch>
-          <Route path="/games">
-            <Games />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/">
-            <Landing />
-          </Route>
+          <Route path="/games" component={Games} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Landing} />
         </Switch>
       </Router>
     </div>
