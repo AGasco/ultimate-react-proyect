@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import GameCard from "./GameCard";
 import SearchBar from "./SearchBar";
 import Sidebar from "./Sidebar";
@@ -133,16 +133,7 @@ function Games({
     setReleaseDate(`${fromYear}-01-01,${toYear}-12-31`);
   };
 
-  const handlePageClick = (dir) => {
-    if (dir === "prev" && curPage > 1) {
-      setPage(curPage - 1);
-    } else if (dir === "next") {
-      setPage(curPage + 1);
-    } else console.error("Wrong direction inputted");
-  };
-
   const handleOrderByChange = (orderBy) => {
-    console.log("changing orderBy", orderBy);
     switch (orderBy) {
       case "name":
         if (curOrderBy === "name") setOrderBy("-name");
@@ -164,6 +155,15 @@ function Games({
 
   const handleResetFilters = () => {
     resetFilters();
+  };
+
+  // Handling pagination
+  const handlePageClick = (dir) => {
+    if (dir === "prev" && curPage > 1) {
+      setPage(curPage - 1);
+    } else if (dir === "next") {
+      setPage(curPage + 1);
+    } else console.error("Wrong direction inputted");
   };
 
   return (

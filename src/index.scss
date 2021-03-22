@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Anton&family=Chakra+Petch:wght@300;400&family=Montserrat:wght@800&family=Big+Shoulders+Display&display=swap");
-@import "./App", "./styles/GameCard", "./styles/Games", "./styles/Landing",
-  "./styles/Platform", "./styles/SearchBar", "./styles/Sidebar";
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Anton&family=Chakra+Petch:wght@300;400&family=Montserrat:wght@400;800&family=Big+Shoulders+Display&display=swap");
+@import "./styles/App", "./styles/GameCard", "./styles/Games",
+  "./styles/Landing", "./styles/Platform", "./styles/SearchBar",
+  "./styles/Sidebar", "./styles/Signup", "./styles/Login";
 
 *,
 *::before,
@@ -24,4 +25,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.disabled {
+  display: none;
 }
