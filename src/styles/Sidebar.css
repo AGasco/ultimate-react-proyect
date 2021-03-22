@@ -41,6 +41,7 @@
   font-family: Montserrat, sans-serif;
   text-align: right;
   padding-right: 30px;
+  cursor: pointer;
 }
 
 .sidebar__sectionContainer {

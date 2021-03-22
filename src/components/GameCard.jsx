@@ -61,7 +61,7 @@ function GameCard({ data, curPlatforms }) {
         <h3 className="gameCard__title">{gameData.name}</h3>
         <div className="gameCard__platforms">
           {gameData.platforms?.map((p) => {
-            if (curPlatforms.includes(p.platform.id))
+            if (curPlatforms?.includes(p.platform.id))
               return <Platform key={p.platform.id} id={p.platform.id} />;
           })}
         </div>

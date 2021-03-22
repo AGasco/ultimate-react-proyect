@@ -6,6 +6,7 @@ import {
   PAGE_SET,
   ORDER_BY_SET,
   GENRES_SET,
+  FILTERS_RESET,
 } from "./gamesActions";
 
 const initialState = {
@@ -55,6 +56,8 @@ const gamesReducer = (state = initialState, action) => {
         ...state,
         genres: action.payload.genres,
       };
+    case FILTERS_RESET:
+      return initialState;
     default:
       return state;
   }
