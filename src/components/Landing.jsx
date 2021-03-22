@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
-import "./../styles/Landing.css";
 
 const Landing = withRouter(({ history }) => {
   const pressedF = useKeyPress("f");

@@ -3,7 +3,6 @@ import Platform from "./Platform";
 import ESRBRatings from "./../data/esrb-ratings.json";
 import Modal from "react-modal";
 import ReactPlayer from "react-player/youtube";
-import "./../styles/GameCard.css";
 
 Modal.setAppElement("#root");
 

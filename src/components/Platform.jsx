@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import platformData from "./../data/platforms-data.json";
-import "./../styles/Platform.css";
 
 const Platform = ({ id }) => {
   const [curPlatform, setCurPlatform] = useState({});

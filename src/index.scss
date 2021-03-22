@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&family=Anton&family=Chakra+Petch:wght@300;400&family=Montserrat:wght@800&family=Big+Shoulders+Display&display=swap");
-
-/*font-family: 'Righteous', cursive; */
+@import "./App", "./styles/GameCard", "./styles/Games", "./styles/Landing",
+  "./styles/Platform", "./styles/SearchBar", "./styles/Sidebar";
 
 *,
 *::before,

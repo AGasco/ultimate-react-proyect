@@ -3,7 +3,6 @@ import GameCard from "./GameCard";
 import SearchBar from "./SearchBar";
 import Sidebar from "./Sidebar";
 import axios from "./../axios.js";
-import "./../styles/Games.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
