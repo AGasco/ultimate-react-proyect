@@ -12,7 +12,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 
   useEffect(() => {
     const query = searchQuery;
-    const formatted = query.slice(query.lastIndexOf("=") + 1);
+    const formatted = query?.slice(query.lastIndexOf("=") + 1);
     setSearch(formatted);
   }, []);
 

@@ -91,3 +91,9 @@
 .gameCard__metacritic > .red {
   background-color: var(--metacritic-red);
 }
+
+@media (max-width: 1400px) {
+  .gameCard {
+    width: 25vw;
+  }
+}

@@ -6,7 +6,6 @@ import Slider from "@material-ui/core/Slider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import "./../styles/Sidebar.css";
-import { ORDER_BY_SET } from "../redux/gamesActions";
 
 const Sidebar = ({
   curOrderBy,
@@ -15,6 +14,7 @@ const Sidebar = ({
   setCurMetacritic,
   setCurReleaseDate,
   setCurOrderBy,
+  resetFilters,
 }) => {
   const [metacriticScore, setMetacriticScore] = useState([0, 100]);
   const [releaseDate, setReleaseDate] = useState([1970, 2021]);
@@ -56,7 +56,7 @@ const Sidebar = ({
 
   //Dynamic UI
   const setUpOrderIcon = (name) => {
-    if (curOrderBy.includes(name)) {
+    if (curOrderBy?.includes(name)) {
       if (curOrderBy[0] === "-") return <FontAwesomeIcon icon={faArrowDown} />;
       else return <FontAwesomeIcon icon={faArrowUp} />;
     }
@@ -64,7 +64,9 @@ const Sidebar = ({
 
   return (
     <div className="sidebar">
-      <h1 className="sidebar__title">THE ULTIMATE GAMES DISPLAY</h1>
+      <h1 className="sidebar__title" onClick={resetFilters}>
+        THE ULTIMATE GAMES DISPLAY
+      </h1>
       <div className="sidebar__sectionContainer platforms">
         <h4 className="sidebar__subtitle">Platforms</h4>
         <div className="sidebar__platformsContainer">
@@ -112,7 +114,7 @@ const Sidebar = ({
           />
         </div>
       </div>
-      <div className="sidebar__sectionContainer">
+      <div className="sidebar__sectionContainer released">
         <h4 className="sidebar__subtitle">Release Year</h4>
         <div className="sidebar__releaseContainer">
           <div className="sidebar__inputContainer">

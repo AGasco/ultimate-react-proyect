@@ -15,7 +15,7 @@ const Platform = ({ id }) => {
 
   return (
     <div className={`platform ${hidden && "hidden"}`}>
-      <a href={curPlatform[0]?.url} target="_blank">
+      <a href={curPlatform[0]?.url} target="_blank" rel="noreferrer">
         <img
           className={`platform__icon ${
             curPlatform[0]?.name === "Nintendo" && "nintendo"

@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   margin-top: 2vh;
-  margin-right: 12vw;
+  margin-right: 7vw;
   width: 60vw;
   color: white;
 }
@@ -27,4 +27,16 @@
   border-radius: 20px;
   outline: none;
   padding-left: 15px;
+}
+
+@media (max-width: 1440px) {
+  .searchbar__container form {
+    margin-right: 7vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .searchbar__container form {
+    margin-right: 6vw;
+  }
 }

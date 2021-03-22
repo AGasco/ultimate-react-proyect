@@ -22,6 +22,7 @@ import {
   setPage,
   setOrderBy,
   setGenres,
+  resetFilters,
 } from "../redux/gamesActions";
 import { connect } from "react-redux";
 
@@ -47,6 +48,7 @@ function Games({
   setPage,
   setOrderBy,
   setGenres,
+  resetFilters,
 }) {
   useEffect(() => {
     //Building query
@@ -161,6 +163,10 @@ function Games({
     }
   };
 
+  const handleResetFilters = () => {
+    resetFilters();
+  };
+
   return (
     <div className="games">
       <div className="games__left">
@@ -172,6 +178,7 @@ function Games({
           setCurMetacritic={handleMetacriticChange}
           setCurReleaseDate={handleReleaseDateChange}
           setCurOrderBy={handleOrderByChange}
+          resetFilters={handleResetFilters}
         />
       </div>
       {loading ? (
@@ -234,6 +241,7 @@ const mapDispatchToProps = {
   setPage,
   setOrderBy,
   setGenres,
+  resetFilters,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Games);

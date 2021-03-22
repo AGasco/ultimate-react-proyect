@@ -5,6 +5,7 @@ export const RELEASE_DATE_SET = "RELEASE_DATE_SET";
 export const PAGE_SET = "PAGE_SET";
 export const ORDER_BY_SET = "ORDER_BY_SET";
 export const GENRES_SET = "GENRES_SET";
+export const FILTERS_RESET = "FILTERS_RESET";
 
 export const setSearchQuery = (query) => ({
   type: SEARCH_QUERY_SET,
@@ -39,4 +40,8 @@ export const setOrderBy = (orderBy) => ({
 export const setGenres = (genres) => ({
   type: GENRES_SET,
   payload: { genres },
+});
+
+export const resetFilters = () => ({
+  type: FILTERS_RESET,
 });
