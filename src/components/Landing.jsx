@@ -5,7 +5,7 @@ const Landing = ({ history }) => {
 
   useEffect(() => {
     if (pressedF) history.push("/games");
-  }, [pressedF]);
+  }, [pressedF, history]);
 
   return (
     <div className="landing">

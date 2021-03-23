@@ -14,7 +14,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
     const query = searchQuery;
     const searchThis = query?.slice(query.lastIndexOf("=") + 1);
     setSearch(searchThis);
-  }, []);
+  }, [searchQuery]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -36,7 +36,7 @@ function GameCard({ data, curPlatforms }) {
       esrb: data.esrb_rating,
       video: data.clip?.video,
     });
-  }, [data]);
+  }, [data, gameData]);
 
   const getESRBIcon = (id) => {
     if (id) {
@@ -62,6 +62,7 @@ function GameCard({ data, curPlatforms }) {
           {gameData.platforms?.map((p) => {
             if (curPlatforms?.includes(p.platform.id))
               return <Platform key={p.platform.id} id={p.platform.id} />;
+            return null;
           })}
         </div>
       </div>
@@ -83,6 +84,7 @@ function GameCard({ data, curPlatforms }) {
       <div className={`gameCard__ageRating ${!gameData.esrb && "hidden"}`}>
         <a
           href="https://en.wikipedia.org/wiki/Entertainment_Software_Rating_Board"
+          rel="noreferrer"
           target="_blank"
         >
           <img

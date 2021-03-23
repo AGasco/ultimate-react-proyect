@@ -16,7 +16,7 @@ const Login = ({ history, setUser }) => {
       setUser(user);
     });
     return unsubscribe;
-  }, []);
+  }, [setUser]);
 
   const login = async (email, password) =>
     auth.signInWithEmailAndPassword(email, password);

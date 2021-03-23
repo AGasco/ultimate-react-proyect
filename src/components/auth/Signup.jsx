@@ -19,7 +19,7 @@ const Signup = ({ setUser }) => {
       setUser(user);
     });
     return unsubscribe;
-  }, []);
+  }, [setUser]);
 
   const signup = (email, password) =>
     auth.createUserWithEmailAndPassword(email, password);
