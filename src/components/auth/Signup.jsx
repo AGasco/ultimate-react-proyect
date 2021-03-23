@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { setUser } from "./../redux/authActions";
-import { auth } from "./../firebase";
+import { setUser } from "../../redux/authActions";
+import { auth } from "../../firebase";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 

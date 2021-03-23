@@ -1,7 +1,7 @@
 import Landing from "./Landing";
 import Games from "./Games";
-import Signup from "../auth/Signup";
-import Login from "../auth/Login";
+import Signup from "./auth/Signup";
+import Login from "./auth/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {

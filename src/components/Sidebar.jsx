@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import platformsData from "./../data/platforms-data.json";
 import genresData from "./../data/genres-data.json";
-import Switch from "@material-ui/core/Switch";
 import Slider from "@material-ui/core/Slider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import PlatformSwitch from "./filters/PlatformSwitch";
+import GenreSwitch from "./filters/GenreSwitch";
 
 const Sidebar = ({
   curOrderBy,
@@ -71,19 +72,7 @@ const Sidebar = ({
         <div className="sidebar__platformsContainer">
           <ul>
             {platformsData.map((p) => (
-              <li key={p.name}>
-                <img
-                  className="sidebar__platformIcon"
-                  src={p.icon}
-                  alt={p.name + "'s logo"}
-                />
-                {p.name}
-                <Switch
-                  value={p.id}
-                  onChange={setCurPlatforms}
-                  defaultChecked
-                />
-              </li>
+              <PlatformSwitch platform={p} setCurPlatforms={setCurPlatforms} />
             ))}
           </ul>
         </div>
@@ -93,10 +82,7 @@ const Sidebar = ({
         <div className="sidebar__genresContainer">
           <ul>
             {genresData.map((g) => (
-              <li key={g.id}>
-                <Switch value={g.id} onChange={setCurGenres} defaultChecked />
-                <p>{g.name}</p>
-              </li>
+              <GenreSwitch genre={g} setCurGenres={setCurGenres} />
             ))}
           </ul>
         </div>
