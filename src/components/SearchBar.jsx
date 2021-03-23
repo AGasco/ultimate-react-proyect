@@ -4,6 +4,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
   const [search, setSearch] = useState("");
+
   const handleChange = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
@@ -11,13 +12,12 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 
   useEffect(() => {
     const query = searchQuery;
-    const formatted = query?.slice(query.lastIndexOf("=") + 1);
-    setSearch(formatted);
+    const searchThis = query?.slice(query.lastIndexOf("=") + 1);
+    setSearch(searchThis);
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearch(e.target.value);
     setSearchQuery(`&search=${search}`);
   };
 

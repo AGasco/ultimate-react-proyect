@@ -62,7 +62,6 @@ function Games({
       query = query.concat(`&genres=${curGenres}`);
     query = query.concat(`&metacritic=${curMetacritic[0]},${curMetacritic[1]}`);
     query = query.concat(`&parent_platforms=${curPlatforms}`);
-    console.log("query", query);
 
     fetchGamesData(query);
   }, [
@@ -81,7 +80,6 @@ function Games({
     await axios
       .get(query)
       .then((res) => {
-        console.log("fetchSuccess", res.data);
         fetchSuccess(res.data.results);
       })
       .catch((err) => {
