@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
 
-const Landing = withRouter(({ history }) => {
+const Landing = ({ history }) => {
   const pressedF = useKeyPress("f");
 
   useEffect(() => {
@@ -18,7 +17,7 @@ const Landing = withRouter(({ history }) => {
       <p className="landing__prompt">Press 'F' to proceed</p>
     </div>
   );
-});
+};
 
 //Hook to grab keypress
 const useKeyPress = (targetKey) => {

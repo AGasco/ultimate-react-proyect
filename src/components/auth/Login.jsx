@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { setUser } from "../../redux/authActions";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
+import { connect } from "react-redux";
 
-const Login = ({ history }) => {
+const Login = ({ history, setUser }) => {
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
@@ -10,7 +12,10 @@ const Login = ({ history }) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    console.log(history);
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return unsubscribe;
   }, []);
 
   const login = async (email, password) =>
@@ -71,4 +76,9 @@ const Login = ({ history }) => {
     </div>
   );
 };
-export default Login;
+
+const mapDispatchToProps = {
+  setUser,
+};
+
+export default connect(null, mapDispatchToProps)(Login);
