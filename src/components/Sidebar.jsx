@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import platformsData from "./../data/platforms-data.json";
 import genresData from "./../data/genres-data.json";
+import Switch from "@material-ui/core/Switch";
 import Slider from "@material-ui/core/Slider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import PlatformSwitch from "./filters/PlatformSwitch";
-import GenreSwitch from "./filters/GenreSwitch";
+import FilterPlatforms from "./filters/FilterPlatforms";
+import FilterGenres from "./filters/FilterGenres";
 
 const Sidebar = ({
   curOrderBy,
@@ -67,26 +68,11 @@ const Sidebar = ({
       <h1 className="sidebar__title" onClick={resetFilters}>
         THE ULTIMATE GAMES DISPLAY
       </h1>
-      <div className="sidebar__sectionContainer platforms">
-        <h4 className="sidebar__subtitle">Platforms</h4>
-        <div className="sidebar__platformsContainer">
-          <ul>
-            {platformsData.map((p) => (
-              <PlatformSwitch platform={p} setCurPlatforms={setCurPlatforms} />
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="sidebar__sectionContainer genres">
-        <h4 className="sidebar__subtitle">Genres</h4>
-        <div className="sidebar__genresContainer">
-          <ul>
-            {genresData.map((g) => (
-              <GenreSwitch genre={g} setCurGenres={setCurGenres} />
-            ))}
-          </ul>
-        </div>
-      </div>
+      <FilterPlatforms
+        platformsData={platformsData}
+        setCurPlatforms={setCurPlatforms}
+      />
+      <FilterGenres genresData={genresData} setCurGenres={setCurGenres} />
       <div className="sidebar__sectionContainer metacritic">
         <h4 className="sidebar__subtitle">Metacritic score</h4>
         <div className="sidebar__metacriticContainer">
