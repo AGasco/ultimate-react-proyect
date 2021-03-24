@@ -6,6 +6,19 @@
   padding-top: 10vh;
   font-family: "Montserrat", cursive;
 
+  &__goBack {
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    width: 200px;
+    text-align: right !important;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
   h1 {
     font-family: "Anton", sans-serif;
     font-weight: 300;

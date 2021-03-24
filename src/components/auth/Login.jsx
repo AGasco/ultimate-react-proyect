@@ -44,6 +44,9 @@ const Login = ({ history, setUser }) => {
 
   return (
     <div className="login">
+      <h1 className="login__goBack">
+        <Link to="/games">THE ULTIMATE GAMES DISPLAY</Link>
+      </h1>
       <form onSubmit={handleSubmit}>
         <div className={`login__errorContainer ${!error && "disabled"}`}>
           {error}

@@ -53,6 +53,9 @@ const Signup = ({ setUser }) => {
 
   return (
     <div className="signup">
+      <h1 className="login__goBack">
+        <Link to="/games">THE ULTIMATE GAMES DISPLAY</Link>
+      </h1>
       <h1>Create your account</h1>
       <form onSubmit={handleSubmit}>
         <div className={`signup__errorContainer ${!error && "disabled"}`}>

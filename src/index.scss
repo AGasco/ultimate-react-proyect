@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&family=Anton&family=Chakra+Petch:wght@300;400&family=Montserrat:wght@400;800&family=Big+Shoulders+Display&display=swap");
 @import "./styles/App", "./styles/GameCard", "./styles/Games",
   "./styles/Landing", "./styles/Platform", "./styles/SearchBar",
-  "./styles/Sidebar", "./styles/Signup", "./styles/Login";
+  "./styles/Sidebar", "./styles/Signup", "./styles/Login", "./styles/LoginUI",
+  "./styles/variables";
 
 *,
 *::before,
 *::after {
   margin: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 body {

@@ -7,6 +7,7 @@
 
 .games__left {
   flex: 1;
+  max-width: 350px;
   position: relative;
 }
 
@@ -16,6 +17,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.games__rightTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .games__loading {

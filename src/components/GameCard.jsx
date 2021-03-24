@@ -36,7 +36,7 @@ function GameCard({ data, curPlatforms }) {
       esrb: data.esrb_rating,
       video: data.clip?.video,
     });
-  }, [data, gameData]);
+  }, [data]);
 
   const getESRBIcon = (id) => {
     if (id) {

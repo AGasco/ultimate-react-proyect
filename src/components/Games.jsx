@@ -25,6 +25,7 @@ import {
   resetFilters,
 } from "../redux/gamesActions";
 import { connect } from "react-redux";
+import LoginUI from "./LoginUI";
 
 function Games({
   //REDUX:Fetch
@@ -184,10 +185,14 @@ function Games({
         </div>
       ) : (
         <div className="games__right">
-          <SearchBar
-            setSearchQuery={handleSearchQueryChange}
-            searchQuery={searchQuery}
-          />
+          <div className="games__rightTop">
+            <LoginUI />
+            <SearchBar
+              setSearchQuery={handleSearchQueryChange}
+              searchQuery={searchQuery}
+            />
+          </div>
+
           <div className="games__container">
             {games?.map((g) => (
               <GameCard key={g.id} data={g} curPlatforms={curPlatforms} />
