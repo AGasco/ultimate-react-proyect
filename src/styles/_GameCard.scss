@@ -7,7 +7,6 @@
 .gameCard {
   width: 20vw;
   background-color: #172866;
-  /* padding-bottom: 20px; */
   border-radius: 0.4em;
   margin: 0 20px 30px;
   position: relative;
@@ -21,8 +20,6 @@
 }
 
 .gameCard__bottom {
-  /* padding: 10px;
-  padding-top: 0; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,22 +44,6 @@
   align-items: center;
   padding-bottom: 5%;
 }
-
-/* .gameCard__footer {
-  border-top: 1px solid #777;
-  display: flex;
-  width: 100%;
-  padding: 5px 0;
-} */
-
-/* .gameCard__footer > * {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-} */
 
 .gameCard__metacritic > * {
   position: absolute;

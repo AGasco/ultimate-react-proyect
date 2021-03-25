@@ -13,7 +13,6 @@
 
 .games__right {
   flex: 3;
-  /* max-width: 90vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,17 +32,12 @@
   font-size: 8rem;
 }
 
-/* .games__right.loading {
-  position: relative;
-} */
-
 .games__container {
   display: flex;
   flex-wrap: wrap;
   padding-top: 2vh;
   justify-content: center;
   align-items: center;
-  /* z-index: -100; */
 }
 
 .games__container * {
@@ -76,13 +70,12 @@
 
 @media (max-width: 1440px) {
   .games__right {
-    /* max-width: 75vw; */
+    max-width: 75vw;
   }
 }
 
 @media (max-width: 1024px) {
   .games__right {
     flex: 2;
-    /* max-width: fit-content; */
   }
 }

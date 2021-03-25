@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
-const Landing = ({ history }) => {
+const Landing = ({ isMobile }) => {
+  const history = useHistory();
   const pressedF = useKeyPress("f");
 
   useEffect(() => {
@@ -14,7 +16,13 @@ const Landing = ({ history }) => {
         <h3 className="landing__subtitle">to the Ultimage Games Display</h3>
       </div>
 
-      <p className="landing__prompt">Press 'F' to proceed</p>
+      {isMobile ? (
+        <p className="landing__prompt" onClick={() => history.push("/games")}>
+          Click to proceed
+        </p>
+      ) : (
+        <p className="landing__prompt">Press 'F' to proceed</p>
+      )}
     </div>
   );
 };
