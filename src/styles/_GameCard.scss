@@ -1,8 +1,4 @@
-.gameCard {
-  --metacritic-green: #66cc33;
-  --metacritic-yellow: #ffcc33;
-  --metacritic-red: #ff0000;
-}
+@import "./variables";
 
 .gameCard {
   width: 20vw;
@@ -10,67 +6,71 @@
   border-radius: 0.4em;
   margin: 0 20px 30px;
   position: relative;
-}
 
-.gameCard__img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  cursor: pointer;
-}
+  &__img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+  }
 
-.gameCard__bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.gameCard__title {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  height: 100px;
-  font-size: 2rem;
-  padding-bottom: 10px;
-  font-family: "Anton", sans-serif;
-  font-weight: 100;
-  color: white;
-}
+  &__title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    font-family: "Anton", sans-serif;
+    font-weight: 100;
+    color: white;
+  }
 
-.gameCard__platforms {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 5%;
-}
+  &__platforms {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+  }
 
-.gameCard__metacritic > * {
-  position: absolute;
-  font-size: 2rem;
-  color: White;
-  top: 3%;
-  left: 3%;
-  width: max-content;
-  padding: 3px 7.5px;
-  border-radius: 5px;
-}
+  &__metacritic {
+    * {
+      position: absolute;
+      font-size: 2rem;
+      color: White;
+      top: 3%;
+      left: 3%;
+      width: max-content;
+      padding: 3px 7.5px;
+      border-radius: 5px;
+    }
 
-.gameCard__ageRating img {
-  position: absolute;
-  top: 3%;
-  right: 3%;
-  width: 40px;
-}
+    .green {
+      background-color: $metacritic-green;
+    }
+    .yellow {
+      background-color: $metacritic-yellow;
+    }
+    .red {
+      background-color: $metacritic-red;
+    }
+  }
 
-.gameCard__metacritic > .green {
-  background-color: var(--metacritic-green);
-}
-.gameCard__metacritic > .yellow {
-  background-color: var(--metacritic-yellow);
-}
-.gameCard__metacritic > .red {
-  background-color: var(--metacritic-red);
+  &__ageRating {
+    img {
+      position: absolute;
+      top: 3%;
+      right: 3%;
+      width: 40px;
+    }
+  }
 }
 
 @media (max-width: 1400px) {
@@ -83,10 +83,10 @@
   .gameCard {
     margin: 10px;
     width: 30vw;
-  }
 
-  .gameCard__title {
-    font-size: 1.75rem;
+    &__title {
+      font-size: 1.75rem;
+    }
   }
 }
 
@@ -97,11 +97,13 @@
 }
 
 @media (max-width: 414px) {
-  .gameCard__title {
-    font-size: 1.5rem;
-  }
+  .gameCard {
+    &__title {
+      font-size: 1.5rem;
+    }
 
-  .gameCard__platforms {
-    flex-wrap: wrap;
+    &__platforms {
+      flex-wrap: wrap;
+    }
   }
 }
