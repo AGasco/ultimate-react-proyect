@@ -275,3 +275,53 @@
     padding-bottom: 0;
   }
 }
+
+@media (max-width: 540px) {
+  .sidebar__title {
+    font-size: 1.05rem;
+    padding-right: 10px;
+  }
+  .sidebar__sectionContainer {
+    padding: 5px 0;
+  }
+
+  .sidebar__subtitle {
+    padding-top: 0;
+  }
+
+  .sidebar__sectionContainer * {
+    font-size: 0.7rem;
+  }
+  .sidebar__platformIcon {
+    width: 17.5px;
+  }
+
+  .sidebar__metacriticContainer {
+    height: 40px;
+  }
+
+  .sidebar__sectionContainer.metacritic .MuiSlider-valueLabel {
+    transform: scale(0.8) !important;
+  }
+
+  .sidebar__sectionContainer.metacritic .MuiSlider-root {
+    padding: 30px 0 0 0;
+  }
+
+  .sidebar__releaseMin,
+  .sidebar__releaseMax {
+    font-size: 0.8rem !important;
+  }
+
+  .sidebar__releaseContainer .sidebar__inputContainer {
+    margin: 2px 0;
+  }
+
+  .sidebar__orderBtn {
+    font-size: 0.6rem;
+  }
+
+  .sidebar__sectionContainer.orderBy {
+    padding-top: 20px;
+  }
+}

@@ -9,7 +9,12 @@ function GenreSwitch({ genresData, setCurGenres }) {
         <ul>
           {genresData.map((g) => (
             <li key={g.id}>
-              <Switch value={g.id} onChange={setCurGenres} defaultChecked />
+              <Switch
+                value={g.id}
+                size={window.innerWidth <= 550 ? "small" : "medium"}
+                onChange={setCurGenres}
+                defaultChecked
+              />
               <p>{g.name}</p>
             </li>
           ))}

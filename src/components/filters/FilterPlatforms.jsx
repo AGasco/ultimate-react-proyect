@@ -15,7 +15,12 @@ function FilterPlatforms({ platformsData, setCurPlatforms }) {
                 alt={p.name + "'s logo"}
               />
               {p.name}
-              <Switch value={p.id} onChange={setCurPlatforms} defaultChecked />
+              <Switch
+                value={p.id}
+                size={window.innerWidth <= 550 ? "small" : "medium"}
+                onChange={setCurPlatforms}
+                defaultChecked
+              />
             </li>
           ))}
         </ul>
