@@ -89,3 +89,9 @@
     font-size: 1.75rem;
   }
 }
+
+@media (max-width: 540px) {
+  .gameCard {
+    width: 50vw;
+  }
+}
