@@ -78,3 +78,14 @@
     width: 25vw;
   }
 }
+
+@media (max-width: 768px) {
+  .gameCard {
+    margin: 10px;
+    width: 30vw;
+  }
+
+  .gameCard__title {
+    font-size: 1.75rem;
+  }
+}
