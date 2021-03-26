@@ -1,7 +1,7 @@
 import React from "react";
 import Switch from "@material-ui/core/Switch";
 
-function FilterPlatforms({ platformsData, setCurPlatforms }) {
+function FilterPlatforms({ platformsData, setCurPlatforms, switchSize }) {
   return (
     <div className="sidebar__sectionContainer platforms">
       <h4 className="sidebar__subtitle">Platforms</h4>
@@ -17,7 +17,7 @@ function FilterPlatforms({ platformsData, setCurPlatforms }) {
               {p.name}
               <Switch
                 value={p.id}
-                size={window.innerWidth <= 550 ? "small" : "medium"}
+                size={switchSize}
                 onChange={setCurPlatforms}
                 defaultChecked
               />

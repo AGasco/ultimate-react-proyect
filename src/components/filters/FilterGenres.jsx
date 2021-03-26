@@ -1,7 +1,7 @@
 import React from "react";
 import Switch from "@material-ui/core/Switch";
 
-function GenreSwitch({ genresData, setCurGenres }) {
+function GenreSwitch({ genresData, setCurGenres, switchSize }) {
   return (
     <div className="sidebar__sectionContainer genres">
       <h4 className="sidebar__subtitle">Genres</h4>
@@ -11,7 +11,7 @@ function GenreSwitch({ genresData, setCurGenres }) {
             <li key={g.id}>
               <Switch
                 value={g.id}
-                size={window.innerWidth <= 550 ? "small" : "medium"}
+                size={switchSize}
                 onChange={setCurGenres}
                 defaultChecked
               />

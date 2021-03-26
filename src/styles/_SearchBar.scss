@@ -43,3 +43,9 @@
     margin-right: 6vw;
   }
 }
+
+@media (max-width: 540px) {
+  .searchbar__container form {
+    margin-right: 3vw;
+  }
+}

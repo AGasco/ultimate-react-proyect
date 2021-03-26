@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import platformsData from "./../data/platforms-data.json";
 import genresData from "./../data/genres-data.json";
 import FilterPlatforms from "./filters/FilterPlatforms";
@@ -19,6 +19,13 @@ const Sidebar = ({
   const [metacriticScore, setMetacriticScore] = useState([0, 100]);
   const [releaseDate, setReleaseDate] = useState([1970, 2021]);
 
+  const [switchSize, setSwitchSize] = useState("medium");
+
+  useEffect(() => {
+    if (window.innerWidth <= 540) setSwitchSize("small");
+    else setSwitchSize("medium");
+  }, [window.innnerWidth]);
+
   return (
     <div className="sidebar">
       <h1 className="sidebar__title" onClick={resetFilters}>
@@ -27,8 +34,13 @@ const Sidebar = ({
       <FilterPlatforms
         platformsData={platformsData}
         setCurPlatforms={setCurPlatforms}
+        switchSize={switchSize}
       />
-      <FilterGenres genresData={genresData} setCurGenres={setCurGenres} />
+      <FilterGenres
+        genresData={genresData}
+        setCurGenres={setCurGenres}
+        switchSize={switchSize}
+      />
       <FilterMetacritic
         metacriticScore={metacriticScore}
         setMetacriticScore={setMetacriticScore}
