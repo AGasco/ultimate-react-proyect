@@ -1,32 +1,26 @@
-.platform.hidden {
-  display: none;
-}
+.platform {
+  &__icon {
+    width: 30px;
+    margin: 0 5px;
 
-.platform__icon {
-  width: 30px;
-  margin: 0 5px;
-}
-
-.platform__icon.nintendo {
-  width: 60px;
+    &.nintendo {
+      width: 60px;
+    }
+  }
 }
 
 @media (width: 768px) {
   .platform__icon {
     width: 17.5px;
-  }
 
-  .platform__icon.nintendo {
-    width: 50px;
+    &.nintendo {
+      width: 50px;
+    }
   }
 }
 
 @media (max-width: 414px) {
   .platform__icon {
     width: 25px;
-  }
-
-  .platform__icon.nintendo {
-    width: 50px;
   }
 }
