@@ -95,3 +95,13 @@
     width: 50vw;
   }
 }
+
+@media (max-width: 414px) {
+  .gameCard__title {
+    font-size: 1.5rem;
+  }
+
+  .gameCard__platforms {
+    flex-wrap: wrap;
+  }
+}

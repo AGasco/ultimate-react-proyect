@@ -88,3 +88,10 @@
     max-width: 225px;
   }
 }
+
+@media (max-width: 540px) {
+  .games__rightTop {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+}

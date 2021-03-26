@@ -325,3 +325,37 @@
     padding-top: 20px;
   }
 }
+
+@media (max-width: 414px) {
+  .sidebar__title {
+    font-size: 0.95rem;
+  }
+
+  .sidebar__orderBtn {
+    font-size: 0.475rem;
+    width: 33%;
+  }
+}
+
+@media (max-width: 375px) {
+  .sidebar__title {
+    font-size: 0.85rem;
+  }
+
+  .sidebar__subtitle {
+    margin: 5px 0;
+  }
+
+  .sidebar__platformsContainer .MuiSwitch-root {
+    right: 0 !important;
+  }
+
+  .sidebar__sectionContainer.metacritic .MuiSlider-root {
+    transform: scale(0.9);
+  }
+
+  .sidebar__sectionContainer.released,
+  .sidebar__sectionContainer.orderBy {
+    margin-top: 10px;
+  }
+}
