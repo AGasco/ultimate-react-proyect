@@ -75,7 +75,16 @@
 }
 
 @media (max-width: 1024px) {
+  .games__left {
+    max-width: 300px;
+  }
   .games__right {
     flex: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .games__left {
+    max-width: 225px;
   }
 }

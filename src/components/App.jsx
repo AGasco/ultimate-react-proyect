@@ -14,12 +14,9 @@ function App() {
     setIsMobile(screenWidth <= 900);
   }, [screenWidth]);
 
-  useEffect(() => {
-    console.log("isMobile", isMobile);
-  }, [isMobile]);
+  useEffect(() => {}, [isMobile]);
 
   useEffect(() => {
-    console.log("inside useEffect");
     window.addEventListener("resize", updateScreenWidth);
     return () => window.removeEventListener("resize", updateScreenWidth);
   }, []);

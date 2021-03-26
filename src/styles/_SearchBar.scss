@@ -1,9 +1,13 @@
 .searchbar {
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex: 3;
   /* padding: 20px; */
+}
+
+.searchbar__container {
+  width: 100%;
 }
 
 .searchbar__container form {
@@ -11,7 +15,6 @@
   align-items: center;
   margin-top: 2vh;
   margin-right: 2vw;
-  width: 60vw;
   color: white;
 }
 

@@ -1,11 +1,12 @@
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   bottom: 0;
   background-color: #374b91;
-  max-width: 350px;
-  /* height: 100vh; */
+  // max-width: 350px;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   color: white;
@@ -46,6 +47,7 @@
 
 .sidebar__sectionContainer {
   height: 30vh;
+  padding: 10px 0;
   /* height: max-content !important; */
   flex: 1;
 }
@@ -174,7 +176,6 @@
 
 @media (max-width: 1400px) {
   .sidebar {
-    max-width: 320px;
     max-height: 100vh;
   }
 
@@ -197,6 +198,9 @@
 }
 
 @media (max-width: 1280px) {
+  .sidebar__sectionContainer * {
+    font-size: 0.9rem;
+  }
   .sidebar__platformsContainer ul > li {
     padding: 1px 0;
   }
@@ -234,7 +238,40 @@
   .sidebar__genresContainer ul > li > .MuiSwitch-root {
     margin-right: 15px;
   }
+  .sidebar__sectionContainer.metacritic {
+    padding: 0;
+  }
   .sidebar__subtitle {
     padding: 5px 10px;
+  }
+  .sidebar__title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar__title {
+    font-size: 1.35rem;
+  }
+  .sidebar__orderBtn {
+    width: 30%;
+    font-size: 0.75rem;
+  }
+
+  .sidebar__releaseContainer {
+    flex-direction: column;
+  }
+
+  .sidebar__releaseContainer .sidebar__inputContainer {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .sidebar__inputContainer label {
+    width: 30%;
+  }
+
+  .sidebar__sectionContainer.released {
+    padding-bottom: 0;
   }
 }
