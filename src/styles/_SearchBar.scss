@@ -45,6 +45,9 @@
 }
 
 @media (max-width: 540px) {
+  .searchbar__container {
+    margin-left: 5px;
+  }
   .searchbar__container form {
     margin-right: 3vw;
   }

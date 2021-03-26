@@ -209,6 +209,7 @@
   }
   .sidebar__releaseContainer > .sidebar__inputContainer > form {
     display: flex;
+    align-items: center;
   }
   .sidebar__releaseContainer > * {
     flex: 1;
@@ -300,6 +301,10 @@
     height: 40px;
   }
 
+  .sidebar__genresContainer ul > li > .MuiSwitch-root {
+    margin-right: 0;
+  }
+
   .sidebar__sectionContainer.metacritic .MuiSlider-valueLabel {
     transform: scale(0.8) !important;
   }
@@ -357,5 +362,39 @@
   .sidebar__sectionContainer.released,
   .sidebar__sectionContainer.orderBy {
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 375px) and (max-height: 700px) {
+  .sidebar__title {
+    font-size: 0.8rem;
+  }
+
+  .sidebar__subtitle {
+    margin: 0;
+  }
+
+  .sidebar__sectionContainer.genres {
+    padding: 0;
+  }
+
+  .sidebar__sectionContainer.released,
+  .sidebar__sectionContainer.orderBy {
+    margin-top: 0;
+  }
+
+  .sidebar__inputContainer {
+    margin: 0 !important;
+  }
+
+  .sidebar__releaseMin,
+  .sidebar__releaseMax {
+    padding: 0;
+    font-size: 0.7rem !important;
+    height: 10px !important;
+  }
+
+  .sidebar__orderBtn {
+    font-size: 0.4rem;
   }
 }
