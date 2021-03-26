@@ -8,45 +8,44 @@
   align-items: center;
   color: white;
   background-image: url("https://i.pinimg.com/originals/e8/96/f3/e896f3dc66dc68c9949fc2134a810c0f.jpg");
-  /* background-position: right; */
-}
 
-.landing__titleContainer {
-  width: 100vw;
-  height: max-content;
-  background-color: rgba(0, 0, 0, 0.6);
-  font-family: "Montserrat", sans-serif;
-  margin-bottom: 20vh;
-  display: Flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2vh 0;
-}
+  &__titleContainer {
+    width: 100vw;
+    height: max-content;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 20vh;
+    display: Flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 0;
+  }
 
-.landing__title {
-  text-align: center;
-  font-size: 10rem;
-  line-height: 8rem;
-}
+  &__title {
+    text-align: center;
+    font-size: 10rem;
+    line-height: 8rem;
+  }
 
-.landing__subtitle {
-  font-size: 2rem;
-  font-family: "Big Shoulders Display", cursive;
-  font-weight: 100;
-  width: 40vw;
-  text-align: right !important;
-}
+  &__subtitle {
+    font-size: 2rem;
+    font-family: "Big Shoulders Display", cursive;
+    font-weight: 100;
+    width: 40vw;
+    text-align: right !important;
+  }
 
-.landing__prompt {
-  line-height: 0;
-  opacity: 0;
-  animation: showPrompt, breathePrompt;
-  animation-duration: 2s, 4s;
-  animation-delay: 1.5s, 3.5s;
-  animation-fill-mode: forwards;
-  animation-direction: normal, alternate;
-  animation-iteration-count: 1, infinite;
+  &__prompt {
+    line-height: 0;
+    opacity: 0;
+    animation: showPrompt, breathePrompt;
+    animation-duration: 2s, 4s;
+    animation-delay: 1.5s, 3.5s;
+    animation-fill-mode: forwards;
+    animation-direction: normal, alternate;
+    animation-iteration-count: 1, infinite;
+  }
 }
 
 @keyframes showPrompt {
@@ -78,17 +77,18 @@
   .landing {
     background-size: 300%;
     background-position: 20% 0%;
-  }
-  .landing__title {
-    font-size: 8rem;
-    line-height: 7rem;
-  }
-  .landing__subtitle {
-    font-size: 1.75rem;
-    margin-left: 15vw;
-  }
-  .landing__prompt {
-    font-size: 1.5rem;
+
+    &__title {
+      font-size: 8rem;
+      line-height: 7rem;
+    }
+    &__subtitle {
+      font-size: 1.75rem;
+      margin-left: 15vw;
+    }
+    &__prompt {
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -96,17 +96,18 @@
   .landing {
     background-size: 300%;
     background-position: 20% 0%;
-  }
-  .landing__title {
-    font-size: 7rem;
-    line-height: 6rem;
-  }
-  .landing__subtitle {
-    font-size: 1.3rem;
-    margin-left: 15vw;
-  }
-  .landing__prompt {
-    font-size: 0.8rem;
+
+    &__title {
+      font-size: 7rem;
+      line-height: 6rem;
+    }
+    &__subtitle {
+      font-size: 1.3rem;
+      margin-left: 15vw;
+    }
+    &__prompt {
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -114,17 +115,18 @@
   .landing {
     background-size: 330%;
     background-position: 20% 0%;
-  }
-  .landing__title {
-    font-size: 6rem;
-    line-height: 5rem;
-  }
-  .landing__subtitle {
-    font-size: 1.2rem;
-    margin-left: 25vw;
-  }
-  .landing__prompt {
-    font-size: 0.8rem;
+
+    &__title {
+      font-size: 6rem;
+      line-height: 5rem;
+    }
+    &__subtitle {
+      font-size: 1.2rem;
+      margin-left: 25vw;
+    }
+    &__prompt {
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -132,14 +134,15 @@
   .landing {
     background-size: 350%;
     background-position: 25% 0%;
-  }
-  .landing__title {
-    font-size: 5rem;
-    line-height: 4rem;
-  }
-  .landing__subtitle {
-    font-size: 1.1rem;
-    margin-left: 25vw;
+
+    &__title {
+      font-size: 5rem;
+      line-height: 4rem;
+    }
+    &__subtitle {
+      font-size: 1.1rem;
+      margin-left: 25vw;
+    }
   }
 }
 
@@ -147,15 +150,16 @@
   .landing {
     background-size: 500%;
     background-position: 30% 0%;
-  }
-  .landing__title {
-    font-size: 4rem;
-    line-height: 3rem;
-  }
-  .landing__subtitle {
-    font-size: 1rem;
-    margin-left: 25vw;
-    padding-top: 10px;
+
+    &__title {
+      font-size: 4rem;
+      line-height: 3rem;
+    }
+    &__subtitle {
+      font-size: 1rem;
+      margin-left: 25vw;
+      padding-top: 10px;
+    }
   }
 }
 
@@ -163,27 +167,29 @@
   .landing {
     background-size: 600%;
     background-position: 30% 0%;
-  }
-  .landing__title {
-    font-size: 3.5rem;
-    line-height: 2rem;
-  }
-  .landing__prompt {
-    font-size: 0.7rem;
+
+    &__title {
+      font-size: 3.5rem;
+      line-height: 2rem;
+    }
+    &__prompt {
+      font-size: 0.7rem;
+    }
   }
 }
 
 @media (max-width: 320px) {
   .landing {
     background-position: 32.5% 0%;
-  }
-  .landing__title {
-    font-size: 3rem;
-  }
-  .landing__subtitle {
-    font-size: 0.9rem;
-    margin-left: 25vw;
-    white-space: nowrap;
-    padding-top: 10px;
+
+    &__title {
+      font-size: 3rem;
+    }
+    &__subtitle {
+      font-size: 0.9rem;
+      margin-left: 25vw;
+      white-space: nowrap;
+      padding-top: 10px;
+    }
   }
 }
